@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,22 @@ namespace Byatikram
 
         private void button1_Click(object sender, EventArgs e)
         {
-            masterForm Check = new masterForm();
-            Check.Show();
-            Hide();
+            SqlConnection sqlcon = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ByatikramDB;Integrated Security=True");
+
+            string query = "Select * from Users Where Email='" + bunifuMetroTextbox1.Text.Trim() + "' and password = '" + bunifuMetroTextbox2.Text.Trim() + "'";
+            SqlDataAdapter sda = new SqlDataAdapter(query, sqlcon);
+            DataTable dtbl = new DataTable();
+            sda.Fill(dtbl);
+            if (dtbl.Rows.Count == 1)
+            {
+                masterForm objFrmMain = new masterForm();
+                this.Hide();
+                objFrmMain.Show();
+            }
+            else
+            {
+                MessageBox.Show("Check your username and password");
+            }
         }
     }
 }
