@@ -51,9 +51,9 @@
             // bunifuMetroTextbox1
             // 
             this.bunifuMetroTextbox1.BackColor = System.Drawing.Color.White;
-            this.bunifuMetroTextbox1.BorderColorFocused = System.Drawing.Color.Blue;
+            this.bunifuMetroTextbox1.BorderColorFocused = System.Drawing.Color.SeaGreen;
             this.bunifuMetroTextbox1.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuMetroTextbox1.BorderColorMouseHover = System.Drawing.Color.Blue;
+            this.bunifuMetroTextbox1.BorderColorMouseHover = System.Drawing.Color.SeaGreen;
             this.bunifuMetroTextbox1.BorderThickness = 3;
             this.bunifuMetroTextbox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.bunifuMetroTextbox1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
@@ -69,9 +69,9 @@
             // bunifuMetroTextbox2
             // 
             this.bunifuMetroTextbox2.BackColor = System.Drawing.Color.White;
-            this.bunifuMetroTextbox2.BorderColorFocused = System.Drawing.Color.Blue;
+            this.bunifuMetroTextbox2.BorderColorFocused = System.Drawing.Color.SeaGreen;
             this.bunifuMetroTextbox2.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuMetroTextbox2.BorderColorMouseHover = System.Drawing.Color.Blue;
+            this.bunifuMetroTextbox2.BorderColorMouseHover = System.Drawing.Color.SeaGreen;
             this.bunifuMetroTextbox2.BorderThickness = 3;
             this.bunifuMetroTextbox2.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.bunifuMetroTextbox2.Font = new System.Drawing.Font("Century Gothic", 9.75F);
