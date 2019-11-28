@@ -523,7 +523,23 @@
             this.bunifuDropdown3.BackColor = System.Drawing.Color.Transparent;
             this.bunifuDropdown3.BorderRadius = 3;
             this.bunifuDropdown3.ForeColor = System.Drawing.Color.White;
-            this.bunifuDropdown3.Items = new string[0];
+            this.bunifuDropdown3.Items = new string[] {
+        "Three",
+        "Four",
+        "Six",
+        "Seven",
+        "IX",
+        "X",
+        "PEC",
+        "JSC",
+        "SSC",
+        "Grade-3",
+        "Grade-4",
+        "Grade-5",
+        "Grade-6",
+        "Grade-7",
+        "Grade-8",
+        "O Level"};
             this.bunifuDropdown3.Location = new System.Drawing.Point(490, 536);
             this.bunifuDropdown3.Name = "bunifuDropdown3";
             this.bunifuDropdown3.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
@@ -531,6 +547,7 @@
             this.bunifuDropdown3.selectedIndex = -1;
             this.bunifuDropdown3.Size = new System.Drawing.Size(388, 35);
             this.bunifuDropdown3.TabIndex = 29;
+            this.bunifuDropdown3.onItemSelected += new System.EventHandler(this.bunifuDropdown3_onItemSelected);
             // 
             // bunifuDropdown4
             // 
