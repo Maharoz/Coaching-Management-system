@@ -568,7 +568,16 @@
             this.bunifuDropdown5.BackColor = System.Drawing.Color.Transparent;
             this.bunifuDropdown5.BorderRadius = 3;
             this.bunifuDropdown5.ForeColor = System.Drawing.Color.White;
-            this.bunifuDropdown5.Items = new string[0];
+            this.bunifuDropdown5.Items = new string[] {
+        "1000",
+        "2000",
+        "1200",
+        "1500",
+        "2000",
+        "3000",
+        "3500",
+        "4000",
+        "5000"};
             this.bunifuDropdown5.Location = new System.Drawing.Point(490, 589);
             this.bunifuDropdown5.Name = "bunifuDropdown5";
             this.bunifuDropdown5.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
