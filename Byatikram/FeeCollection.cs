@@ -16,5 +16,14 @@ namespace Byatikram
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string rollNo = bunifuMetroTextbox1.Text;
+            string name = bunifuMetroTextbox3.Text;
+            PrintableForm objFrmMain = new PrintableForm(rollNo,name);
+            //this.Hide();
+            objFrmMain.Show();
+        }
     }
 }

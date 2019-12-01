@@ -75,7 +75,7 @@ namespace Byatikram
         private void button6_Click(object sender, EventArgs e)
         {
             FeeCollection objFrmMain = new FeeCollection();
-            this.Hide();
+           // this.Hide();
             objFrmMain.Show();
         }
     }
