@@ -24,6 +24,26 @@ namespace Byatikram
 
             string query = "Select * from Users Where Email='" + bunifuMetroTextbox1.Text.Trim() + "' and password = '" + bunifuMetroTextbox2.Text.Trim() + "'";
             SqlDataAdapter sda = new SqlDataAdapter(query, sqlcon);
+
+
+
+            using (SqlConnection connection = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ByatikramDB;Integrated Security=True"))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                connection.Open();
+
+                SqlDataReader read = command.ExecuteReader();
+
+                while (read.Read())
+                {
+                   
+                    User.Name = (read["Name"].ToString());
+                    User.Email = (read["Email"].ToString());
+                    User.UserID = (read["UserID"].ToString());
+                }
+                read.Close();
+            }
+
             DataTable dtbl = new DataTable();
             sda.Fill(dtbl);
             if (dtbl.Rows.Count == 1)

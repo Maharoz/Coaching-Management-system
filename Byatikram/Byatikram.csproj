@@ -115,6 +115,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="MoneyCollection.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="PrintableForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,7 +126,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Receipt.cs" />
+    <Compile Include="User.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="FeeCollection.resx">
       <DependentUpon>FeeCollection.cs</DependentUpon>

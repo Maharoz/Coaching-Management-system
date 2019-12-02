@@ -4,14 +4,25 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ByatikramDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ByatikramDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="MoneyCollection">
+          <Key>
+            <PropertyRef Name="CollectionID" />
+          </Key>
+          <Property Name="CollectionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentRollNumber" Type="varchar" MaxLength="50" />
+          <Property Name="CollectedAmount" Type="varchar" MaxLength="50" />
+          <Property Name="CollectorID" Type="varchar" MaxLength="50" />
+          <Property Name="CollectionMonth" Type="varchar" MaxLength="50" />
+        </EntityType>
         <Function Name="GetPaymentReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="RollNumber" Type="varchar" Mode="In" />
           <Parameter Name="PaymentMonth" Type="varchar" Mode="In" />
         </Function>
-        <EntityContainer Name="ByatikramDBModelStoreContainer" />
-      </Schema>
-    </edmx:StorageModels>
+        <EntityContainer Name="ByatikramDBModelStoreContainer">
+          <EntitySet Name="MoneyCollection" EntityType="Self.MoneyCollection" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ByatikramDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -20,6 +31,7 @@
             <Parameter Name="RollNumber" Mode="In" Type="String" />
             <Parameter Name="PaymentMonth" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="MoneyCollections" EntityType="ByatikramDBModel.MoneyCollection" />
         </EntityContainer>
         <ComplexType Name="GetPaymentReport_Result">
           <Property Type="Int32" Name="CollectionID" Nullable="false" />
@@ -28,6 +40,16 @@
           <Property Type="String" Name="CollectorID" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="CollectionMonth" Nullable="true" MaxLength="50" />
         </ComplexType>
+        <EntityType Name="MoneyCollection">
+          <Key>
+            <PropertyRef Name="CollectionID" />
+          </Key>
+          <Property Name="CollectionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentRollNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CollectedAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CollectorID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CollectionMonth" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -45,6 +67,17 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="MoneyCollections">
+            <EntityTypeMapping TypeName="ByatikramDBModel.MoneyCollection">
+              <MappingFragment StoreEntitySet="MoneyCollection">
+                <ScalarProperty Name="CollectionMonth" ColumnName="CollectionMonth" />
+                <ScalarProperty Name="CollectorID" ColumnName="CollectorID" />
+                <ScalarProperty Name="CollectedAmount" ColumnName="CollectedAmount" />
+                <ScalarProperty Name="StudentRollNumber" ColumnName="StudentRollNumber" />
+                <ScalarProperty Name="CollectionID" ColumnName="CollectionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
