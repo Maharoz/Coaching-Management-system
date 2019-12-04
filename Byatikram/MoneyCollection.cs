@@ -19,5 +19,6 @@ namespace Byatikram
         public string CollectedAmount { get; set; }
         public string CollectorID { get; set; }
         public string CollectionMonth { get; set; }
+        public string StudentName { get; set; }
     }
 }

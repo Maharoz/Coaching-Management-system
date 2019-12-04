@@ -28,6 +28,8 @@ namespace Byatikram
         }
     
         public virtual DbSet<MoneyCollection> MoneyCollections { get; set; }
+        public virtual DbSet<StudentRegistration> StudentRegistrations { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     
         public virtual ObjectResult<GetPaymentReport_Result> GetPaymentReport(string rollNumber, string paymentMonth)
         {

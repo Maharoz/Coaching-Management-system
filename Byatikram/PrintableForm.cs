@@ -19,13 +19,29 @@ namespace Byatikram
             //label4.Text = rollNo;
             //label9.Text = DateTime.Today.ToShortDateString();
             //label10.Text = name;
+            textBox1.Text = rollNo;
+            textBox2.Text = name;
         }
 
         private void PrintableForm_Load(object sender, EventArgs e)
         {
 
-          
-            this.reportViewer1.RefreshReport();
+
+            using (ByatikramDBEntities db = new ByatikramDBEntities())
+            {
+                GetPaymentReport_ResultBindingSource.DataSource =
+                    db.GetPaymentReport(textBox1.Text, textBox2.Text).FirstOrDefault();
+
+                Microsoft.Reporting.WinForms.ReportParameter[] rParams =
+                    new Microsoft.Reporting.WinForms.ReportParameter[]
+                    {
+                        //new ReportParameter("RollNumber", textBox1.Text),
+                        //new ReportParameter("PaymentMonth", textBox2.Text),
+                    };
+                reportViewer1.LocalReport.SetParameters(rParams);
+                reportViewer1.RefreshReport();
+            }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -33,7 +49,7 @@ namespace Byatikram
             using (ByatikramDBEntities db = new ByatikramDBEntities())
             {
                 GetPaymentReport_ResultBindingSource.DataSource =
-                    db.GetPaymentReport(textBox1.Text, textBox2.Text).FirstOrDefault();
+                    db.GetPaymentReport(textBox1.Text, textBox2.Text.ToString()).FirstOrDefault();
 
                 Microsoft.Reporting.WinForms.ReportParameter[] rParams =
                     new Microsoft.Reporting.WinForms.ReportParameter[]

@@ -41,6 +41,7 @@
             this.bunifuDropdown1 = new Bunifu.Framework.UI.BunifuDropdown();
             this.bunifuDropdown2 = new Bunifu.Framework.UI.BunifuDropdown();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -216,12 +217,26 @@
             this.bunifuDragControl1.TargetControl = null;
             this.bunifuDragControl1.Vertical = true;
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.SeaGreen;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button2.Location = new System.Drawing.Point(1, 1);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(99, 35);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "Back";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // FeeCollection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(49)))), ((int)(((byte)(60)))));
             this.ClientSize = new System.Drawing.Size(1002, 724);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.bunifuDropdown2);
             this.Controls.Add(this.bunifuDropdown1);
             this.Controls.Add(this.bunifuMetroTextbox3);
@@ -254,5 +269,6 @@
         private Bunifu.Framework.UI.BunifuDropdown bunifuDropdown1;
         private Bunifu.Framework.UI.BunifuDropdown bunifuDropdown2;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
+        private System.Windows.Forms.Button button2;
     }
 }

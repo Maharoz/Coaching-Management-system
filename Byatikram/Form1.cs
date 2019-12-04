@@ -4,10 +4,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Byatikram.Properties;
 
 namespace Byatikram
 {
@@ -20,14 +22,17 @@ namespace Byatikram
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlcon = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ByatikramDB;Integrated Security=True");
+            //SqlConnection sqlcon = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ByatikramDB;Integrated Security=True");
+            string path = Path.GetFullPath(Environment.CurrentDirectory);
+            string databaseName = "ByatikramDB.mdf";
+            SqlConnection sqlcon = new SqlConnection(@"Data Source=celsa.database.windows.net;Initial Catalog=pos-mugdho;User ID=celsa;Password=Qwerty1@3$5");
 
             string query = "Select * from Users Where Email='" + bunifuMetroTextbox1.Text.Trim() + "' and password = '" + bunifuMetroTextbox2.Text.Trim() + "'";
             SqlDataAdapter sda = new SqlDataAdapter(query, sqlcon);
 
 
 
-            using (SqlConnection connection = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ByatikramDB;Integrated Security=True"))
+            using (SqlConnection connection = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;AttachDbFilename=" + path + @"\" + databaseName + ";Integrated Security=True"))
             {
                 SqlCommand command = new SqlCommand(query, connection);
                 connection.Open();
@@ -37,9 +42,9 @@ namespace Byatikram
                 while (read.Read())
                 {
                    
-                    User.Name = (read["Name"].ToString());
-                    User.Email = (read["Email"].ToString());
-                    User.UserID = (read["UserID"].ToString());
+                    Users.Name = (read["Name"].ToString());
+                    Users.Email = (read["Email"].ToString());
+                    Users.UserID = (read["UserID"].ToString());
                 }
                 read.Close();
             }

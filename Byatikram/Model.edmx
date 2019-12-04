@@ -14,6 +14,36 @@
           <Property Name="CollectedAmount" Type="varchar" MaxLength="50" />
           <Property Name="CollectorID" Type="varchar" MaxLength="50" />
           <Property Name="CollectionMonth" Type="varchar" MaxLength="50" />
+          <Property Name="StudentName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="StudentRegistration">
+          <Key>
+            <PropertyRef Name="StudentID" />
+          </Key>
+          <Property Name="StudentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentName" Type="varchar" MaxLength="50" />
+          <Property Name="StudentRollNumber" Type="varchar" MaxLength="50" />
+          <Property Name="GuardiansName" Type="varchar" MaxLength="50" />
+          <Property Name="Address" Type="varchar" MaxLength="50" />
+          <Property Name="DoB" Type="date" />
+          <Property Name="School" Type="varchar" MaxLength="50" />
+          <Property Name="Class" Type="varchar" MaxLength="50" />
+          <Property Name="AdmissionFee" Type="int" />
+          <Property Name="MobileNumber" Type="varchar" MaxLength="50" />
+          <Property Name="Version" Type="varchar" MaxLength="50" />
+          <Property Name="Course" Type="varchar" MaxLength="50" />
+          <Property Name="MonthlyFee" Type="varchar" MaxLength="50" />
+          <Property Name="CourseStartDate" Type="date" />
+          <Property Name="Status" Type="int" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
         </EntityType>
         <Function Name="GetPaymentReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="RollNumber" Type="varchar" Mode="In" />
@@ -21,6 +51,8 @@
         </Function>
         <EntityContainer Name="ByatikramDBModelStoreContainer">
           <EntitySet Name="MoneyCollection" EntityType="Self.MoneyCollection" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentRegistration" EntityType="Self.StudentRegistration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -32,6 +64,8 @@
             <Parameter Name="PaymentMonth" Mode="In" Type="String" />
           </FunctionImport>
           <EntitySet Name="MoneyCollections" EntityType="ByatikramDBModel.MoneyCollection" />
+          <EntitySet Name="StudentRegistrations" EntityType="ByatikramDBModel.StudentRegistration" />
+          <EntitySet Name="Users" EntityType="ByatikramDBModel.User" />
         </EntityContainer>
         <ComplexType Name="GetPaymentReport_Result">
           <Property Type="Int32" Name="CollectionID" Nullable="false" />
@@ -49,6 +83,36 @@
           <Property Name="CollectedAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CollectorID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CollectionMonth" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StudentName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="StudentRegistration">
+          <Key>
+            <PropertyRef Name="StudentID" />
+          </Key>
+          <Property Name="StudentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StudentRollNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GuardiansName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DoB" Type="DateTime" Precision="0" />
+          <Property Name="School" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Class" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AdmissionFee" Type="Int32" />
+          <Property Name="MobileNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Version" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Course" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MonthlyFee" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CourseStartDate" Type="DateTime" Precision="0" />
+          <Property Name="Status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -70,11 +134,43 @@
           <EntitySetMapping Name="MoneyCollections">
             <EntityTypeMapping TypeName="ByatikramDBModel.MoneyCollection">
               <MappingFragment StoreEntitySet="MoneyCollection">
+                <ScalarProperty Name="StudentName" ColumnName="StudentName" />
                 <ScalarProperty Name="CollectionMonth" ColumnName="CollectionMonth" />
                 <ScalarProperty Name="CollectorID" ColumnName="CollectorID" />
                 <ScalarProperty Name="CollectedAmount" ColumnName="CollectedAmount" />
                 <ScalarProperty Name="StudentRollNumber" ColumnName="StudentRollNumber" />
                 <ScalarProperty Name="CollectionID" ColumnName="CollectionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentRegistrations">
+            <EntityTypeMapping TypeName="ByatikramDBModel.StudentRegistration">
+              <MappingFragment StoreEntitySet="StudentRegistration">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CourseStartDate" ColumnName="CourseStartDate" />
+                <ScalarProperty Name="MonthlyFee" ColumnName="MonthlyFee" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="AdmissionFee" ColumnName="AdmissionFee" />
+                <ScalarProperty Name="Class" ColumnName="Class" />
+                <ScalarProperty Name="School" ColumnName="School" />
+                <ScalarProperty Name="DoB" ColumnName="DoB" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="GuardiansName" ColumnName="GuardiansName" />
+                <ScalarProperty Name="StudentRollNumber" ColumnName="StudentRollNumber" />
+                <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="ByatikramDBModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

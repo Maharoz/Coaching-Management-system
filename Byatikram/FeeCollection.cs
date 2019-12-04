@@ -4,10 +4,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Byatikram.Properties;
 using Microsoft.Win32;
 
 namespace Byatikram
@@ -21,12 +23,16 @@ namespace Byatikram
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ByatikramDB;Integrated Security=True");
+            string path = Path.GetFullPath(Environment.CurrentDirectory);
+            string databaseName = "ByatikramDB.mdf";
+            //SqlConnection sqlcon = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;AttachDbFilename=" + path + @"\" + databaseName + ";Integrated Security=True");
+            SqlConnection con = new SqlConnection(@"Data Source=celsa.database.windows.net;Initial Catalog=pos-mugdho;User ID=celsa;Password=Qwerty1@3$5");
             SqlCommand cmd;
             SqlDataAdapter adapt;
 
             string rollNo = bunifuMetroTextbox1.Text;
-            string name = bunifuMetroTextbox3.Text;
+            string name = bunifuDropdown1.selectedValue + ',' + bunifuDropdown2.selectedValue;
+            // string date = bunifuDropdown1.selectedValue + ',' + bunifuDropdown2.selectedValue;
             PrintableForm objFrmMain = new PrintableForm(rollNo,name);
             //this.Hide();
             objFrmMain.Show();
@@ -38,14 +44,21 @@ namespace Byatikram
             cmd.Parameters.AddWithValue("@CollectedAmount", bunifuMetroTextbox2.Text);
             cmd.Parameters.AddWithValue("@StudentName", bunifuMetroTextbox3.Text);
             cmd.Parameters.AddWithValue("@CollectionMonth", bunifuDropdown1.selectedValue +',' + bunifuDropdown2.selectedValue);
-            cmd.Parameters.AddWithValue("@CollectorID", User.UserID);
-           // cmd.Parameters.AddWithValue("@School", bunifuDropdown1.selectedValue);
-         
+            cmd.Parameters.AddWithValue("@CollectorID", Users.UserID);
+          //  cmd.Parameters.AddWithValue("@CollectorName", User.Name);
+
 
 
             cmd.ExecuteNonQuery();
             con.Close();
             MessageBox.Show("Record Inserted Successfully");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            masterForm objFrmMain = new masterForm();
+            this.Hide();
+            objFrmMain.Show();
         }
     }
 }
