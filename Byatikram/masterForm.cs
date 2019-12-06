@@ -42,7 +42,7 @@ namespace Byatikram
         {
             if (bunifuMetroTextbox1.Text != "" && bunifuMetroTextbox2.Text != "")
             {
-                cmd = new SqlCommand("insert into StudentRegistration(StudentName,StudentRollNumber," +
+                cmd = new SqlCommand("insert into Registration(StudentName,StudentRollNumber," +
                                      "GuardiansName,DoB,School,Class,AdmissionFee," +
                                      "MobileNumber,Version,Course,MonthlyFee,CourseStartDate,Status,CreationDate,CreatedBy) " +
                                      "values(@StudentName," +
@@ -50,8 +50,16 @@ namespace Byatikram
                                      "@Class,@AdmissionFee,@MobileNumber,@Version" +
                                      ",@Course,@MonthlyFee,@CourseStartDate,@Status,@CreationDate,@CreatedBy)", con);
                 con.Open();
-                cmd.Parameters.AddWithValue("@StudentName", bunifuMetroTextbox1.Text);
-                cmd.Parameters.AddWithValue("@StudentRollNumber",bunifuMetroTextbox2.Text);
+                cmd.Parameters.AddWithValue("@StudentName", bunifuMetroTextbox2.Text);
+                
+                int i;
+
+                if (int.TryParse(bunifuMetroTextbox1.Text, out i))
+                {
+                    cmd.Parameters.AddWithValue("@StudentRollNumber", i);
+                }
+               
+                
                 cmd.Parameters.AddWithValue("@GuardiansName", bunifuMetroTextbox3.Text);
                 cmd.Parameters.AddWithValue("@Address", bunifuMetroTextbox4.Text);
                 cmd.Parameters.AddWithValue("@DoB", bunifuDatepicker2.Value);

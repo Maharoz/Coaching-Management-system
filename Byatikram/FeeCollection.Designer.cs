@@ -31,17 +31,19 @@
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.bunifuMetroTextbox1 = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.bunifuMetroTextbox2 = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.StudentRollTextBox = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.AmountTextBox = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.bunifuMetroTextbox3 = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.StudentNameTextBox = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.bunifuDropdown1 = new Bunifu.Framework.UI.BunifuDropdown();
             this.bunifuDropdown2 = new Bunifu.Framework.UI.BunifuDropdown();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.button2 = new System.Windows.Forms.Button();
+            this.DueTextBox = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -66,41 +68,41 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Students Roll";
             // 
-            // bunifuMetroTextbox1
+            // StudentRollTextBox
             // 
-            this.bunifuMetroTextbox1.BackColor = System.Drawing.Color.White;
-            this.bunifuMetroTextbox1.BorderColorFocused = System.Drawing.Color.SeaGreen;
-            this.bunifuMetroTextbox1.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuMetroTextbox1.BorderColorMouseHover = System.Drawing.Color.SeaGreen;
-            this.bunifuMetroTextbox1.BorderThickness = 3;
-            this.bunifuMetroTextbox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuMetroTextbox1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.bunifuMetroTextbox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuMetroTextbox1.isPassword = false;
-            this.bunifuMetroTextbox1.Location = new System.Drawing.Point(434, 174);
-            this.bunifuMetroTextbox1.Margin = new System.Windows.Forms.Padding(4);
-            this.bunifuMetroTextbox1.Name = "bunifuMetroTextbox1";
-            this.bunifuMetroTextbox1.Size = new System.Drawing.Size(370, 44);
-            this.bunifuMetroTextbox1.TabIndex = 2;
-            this.bunifuMetroTextbox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.StudentRollTextBox.BackColor = System.Drawing.Color.White;
+            this.StudentRollTextBox.BorderColorFocused = System.Drawing.Color.SeaGreen;
+            this.StudentRollTextBox.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.StudentRollTextBox.BorderColorMouseHover = System.Drawing.Color.SeaGreen;
+            this.StudentRollTextBox.BorderThickness = 3;
+            this.StudentRollTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.StudentRollTextBox.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.StudentRollTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.StudentRollTextBox.isPassword = false;
+            this.StudentRollTextBox.Location = new System.Drawing.Point(434, 174);
+            this.StudentRollTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.StudentRollTextBox.Name = "StudentRollTextBox";
+            this.StudentRollTextBox.Size = new System.Drawing.Size(370, 44);
+            this.StudentRollTextBox.TabIndex = 2;
+            this.StudentRollTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
-            // bunifuMetroTextbox2
+            // AmountTextBox
             // 
-            this.bunifuMetroTextbox2.BackColor = System.Drawing.Color.White;
-            this.bunifuMetroTextbox2.BorderColorFocused = System.Drawing.Color.SeaGreen;
-            this.bunifuMetroTextbox2.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuMetroTextbox2.BorderColorMouseHover = System.Drawing.Color.SeaGreen;
-            this.bunifuMetroTextbox2.BorderThickness = 3;
-            this.bunifuMetroTextbox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuMetroTextbox2.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.bunifuMetroTextbox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuMetroTextbox2.isPassword = false;
-            this.bunifuMetroTextbox2.Location = new System.Drawing.Point(435, 338);
-            this.bunifuMetroTextbox2.Margin = new System.Windows.Forms.Padding(4);
-            this.bunifuMetroTextbox2.Name = "bunifuMetroTextbox2";
-            this.bunifuMetroTextbox2.Size = new System.Drawing.Size(370, 44);
-            this.bunifuMetroTextbox2.TabIndex = 3;
-            this.bunifuMetroTextbox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.AmountTextBox.BackColor = System.Drawing.Color.White;
+            this.AmountTextBox.BorderColorFocused = System.Drawing.Color.SeaGreen;
+            this.AmountTextBox.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.AmountTextBox.BorderColorMouseHover = System.Drawing.Color.SeaGreen;
+            this.AmountTextBox.BorderThickness = 3;
+            this.AmountTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.AmountTextBox.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.AmountTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.AmountTextBox.isPassword = false;
+            this.AmountTextBox.Location = new System.Drawing.Point(435, 338);
+            this.AmountTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.AmountTextBox.Name = "AmountTextBox";
+            this.AmountTextBox.Size = new System.Drawing.Size(370, 44);
+            this.AmountTextBox.TabIndex = 3;
+            this.AmountTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // label3
             // 
@@ -118,7 +120,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label4.Location = new System.Drawing.Point(213, 423);
+            this.label4.Location = new System.Drawing.Point(213, 503);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(198, 29);
             this.label4.TabIndex = 6;
@@ -129,7 +131,7 @@
             this.button1.BackColor = System.Drawing.Color.SeaGreen;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Transparent;
-            this.button1.Location = new System.Drawing.Point(435, 504);
+            this.button1.Location = new System.Drawing.Point(435, 584);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(370, 41);
             this.button1.TabIndex = 7;
@@ -148,23 +150,23 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Students Name";
             // 
-            // bunifuMetroTextbox3
+            // StudentNameTextBox
             // 
-            this.bunifuMetroTextbox3.BackColor = System.Drawing.Color.White;
-            this.bunifuMetroTextbox3.BorderColorFocused = System.Drawing.Color.SeaGreen;
-            this.bunifuMetroTextbox3.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuMetroTextbox3.BorderColorMouseHover = System.Drawing.Color.SeaGreen;
-            this.bunifuMetroTextbox3.BorderThickness = 3;
-            this.bunifuMetroTextbox3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuMetroTextbox3.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.bunifuMetroTextbox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuMetroTextbox3.isPassword = false;
-            this.bunifuMetroTextbox3.Location = new System.Drawing.Point(434, 259);
-            this.bunifuMetroTextbox3.Margin = new System.Windows.Forms.Padding(4);
-            this.bunifuMetroTextbox3.Name = "bunifuMetroTextbox3";
-            this.bunifuMetroTextbox3.Size = new System.Drawing.Size(370, 44);
-            this.bunifuMetroTextbox3.TabIndex = 9;
-            this.bunifuMetroTextbox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.StudentNameTextBox.BackColor = System.Drawing.Color.White;
+            this.StudentNameTextBox.BorderColorFocused = System.Drawing.Color.SeaGreen;
+            this.StudentNameTextBox.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.StudentNameTextBox.BorderColorMouseHover = System.Drawing.Color.SeaGreen;
+            this.StudentNameTextBox.BorderThickness = 3;
+            this.StudentNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.StudentNameTextBox.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.StudentNameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.StudentNameTextBox.isPassword = false;
+            this.StudentNameTextBox.Location = new System.Drawing.Point(434, 259);
+            this.StudentNameTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.StudentNameTextBox.Name = "StudentNameTextBox";
+            this.StudentNameTextBox.Size = new System.Drawing.Size(370, 44);
+            this.StudentNameTextBox.TabIndex = 9;
+            this.StudentNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // bunifuDropdown1
             // 
@@ -184,7 +186,7 @@
         "Octeber",
         "November",
         "Dceember"};
-            this.bunifuDropdown1.Location = new System.Drawing.Point(435, 423);
+            this.bunifuDropdown1.Location = new System.Drawing.Point(434, 503);
             this.bunifuDropdown1.Name = "bunifuDropdown1";
             this.bunifuDropdown1.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
             this.bunifuDropdown1.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
@@ -202,7 +204,7 @@
         "2020",
         "2021",
         "2022"};
-            this.bunifuDropdown2.Location = new System.Drawing.Point(618, 423);
+            this.bunifuDropdown2.Location = new System.Drawing.Point(618, 503);
             this.bunifuDropdown2.Name = "bunifuDropdown2";
             this.bunifuDropdown2.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
             this.bunifuDropdown2.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
@@ -230,22 +232,53 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // DueTextBox
+            // 
+            this.DueTextBox.BackColor = System.Drawing.Color.White;
+            this.DueTextBox.BorderColorFocused = System.Drawing.Color.SeaGreen;
+            this.DueTextBox.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.DueTextBox.BorderColorMouseHover = System.Drawing.Color.SeaGreen;
+            this.DueTextBox.BorderThickness = 3;
+            this.DueTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.DueTextBox.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.DueTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.DueTextBox.isPassword = false;
+            this.DueTextBox.Location = new System.Drawing.Point(435, 408);
+            this.DueTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.DueTextBox.Name = "DueTextBox";
+            this.DueTextBox.Size = new System.Drawing.Size(370, 44);
+            this.DueTextBox.TabIndex = 13;
+            this.DueTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Calibri", 18F);
+            this.label6.ForeColor = System.Drawing.Color.SeaGreen;
+            this.label6.Location = new System.Drawing.Point(222, 408);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 29);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Due";
+            // 
             // FeeCollection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(49)))), ((int)(((byte)(60)))));
             this.ClientSize = new System.Drawing.Size(1002, 724);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.DueTextBox);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.bunifuDropdown2);
             this.Controls.Add(this.bunifuDropdown1);
-            this.Controls.Add(this.bunifuMetroTextbox3);
+            this.Controls.Add(this.StudentNameTextBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.bunifuMetroTextbox2);
-            this.Controls.Add(this.bunifuMetroTextbox1);
+            this.Controls.Add(this.AmountTextBox);
+            this.Controls.Add(this.StudentRollTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FeeCollection";
@@ -259,16 +292,18 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private Bunifu.Framework.UI.BunifuMetroTextbox bunifuMetroTextbox1;
-        private Bunifu.Framework.UI.BunifuMetroTextbox bunifuMetroTextbox2;
+        private Bunifu.Framework.UI.BunifuMetroTextbox StudentRollTextBox;
+        private Bunifu.Framework.UI.BunifuMetroTextbox AmountTextBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label5;
-        private Bunifu.Framework.UI.BunifuMetroTextbox bunifuMetroTextbox3;
+        private Bunifu.Framework.UI.BunifuMetroTextbox StudentNameTextBox;
         private Bunifu.Framework.UI.BunifuDropdown bunifuDropdown1;
         private Bunifu.Framework.UI.BunifuDropdown bunifuDropdown2;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         private System.Windows.Forms.Button button2;
+        private Bunifu.Framework.UI.BunifuMetroTextbox DueTextBox;
+        private System.Windows.Forms.Label label6;
     }
 }

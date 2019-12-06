@@ -16,9 +16,6 @@ namespace Byatikram
         public PrintableForm(string rollNo,string name)
         {
             InitializeComponent();
-            //label4.Text = rollNo;
-            //label9.Text = DateTime.Today.ToShortDateString();
-            //label10.Text = name;
             textBox1.Text = rollNo;
             textBox2.Text = name;
         }
