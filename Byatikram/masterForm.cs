@@ -52,11 +52,10 @@ namespace Byatikram
                 con.Open();
                 cmd.Parameters.AddWithValue("@StudentName", bunifuMetroTextbox2.Text);
                 
-                int i;
-
-                if (int.TryParse(bunifuMetroTextbox1.Text, out i))
+                int rollNumber;
+                if (int.TryParse(bunifuMetroTextbox1.Text, out rollNumber))
                 {
-                    cmd.Parameters.AddWithValue("@StudentRollNumber", i);
+                    cmd.Parameters.AddWithValue("@StudentRollNumber", rollNumber);
                 }
                
                 
