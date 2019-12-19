@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="ByatikramDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="MoneyCollection">
           <Key>
             <PropertyRef Name="CollectionID" />
@@ -99,7 +99,7 @@ warning 6002: The table/view 'pos-mugdho.sys.database_firewall_rules' does not h
           <Parameter Name="RollNumber" Type="int" Mode="In" />
           <Parameter Name="PaymentMonth" Type="varchar" Mode="In" />
         </Function>
-        <EntityContainer Name="ByatikramDBModelStoreContainer">
+        <EntityContainer Name="ModelStoreContainer">
           <EntitySet Name="MoneyCollection" EntityType="Self.MoneyCollection" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Registration" EntityType="Self.Registration" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StudentDue" EntityType="Self.StudentDue" Schema="dbo" store:Type="Tables" />
@@ -116,45 +116,11 @@ warning 6002: The table/view 'pos-mugdho.sys.database_firewall_rules' does not h
     FROM [sys].[database_firewall_rules] AS [database_firewall_rules]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="ByatikramDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="ByatikramDBEntities" annotation:LazyLoadingEnabled="true" >
-          <FunctionImport Name="GetPaymentReport" ReturnType="Collection(ByatikramDBModel.GetPaymentReport_Result)">
-            <Parameter Name="RollNumber" Mode="In" Type="Int32" />
-            <Parameter Name="PaymentMonth" Mode="In" Type="String" />
-          </FunctionImport>
-          <EntitySet Name="database_firewall_rules" EntityType="ByatikramDBModel.database_firewall_rules" />
-          <EntitySet Name="MoneyCollections" EntityType="ByatikramDBModel.MoneyCollection" />
-          <EntitySet Name="Registrations" EntityType="ByatikramDBModel.Registration" />
-          <EntitySet Name="StudentDues" EntityType="ByatikramDBModel.StudentDue" />
-          <EntitySet Name="StudentRegistrations" EntityType="ByatikramDBModel.StudentRegistration" />
-          <EntitySet Name="Users" EntityType="ByatikramDBModel.User" />
-        </EntityContainer>
-        <ComplexType Name="GetPaymentReport_Result">
-          <Property Type="Int32" Name="CollectionID" Nullable="false" />
-          <Property Type="String" Name="StudentRollNumber" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="CollectedAmount" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="CollectorID" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="CollectionMonth" Nullable="true" MaxLength="50" />
-        </ComplexType>
-        <EntityType Name="database_firewall_rules">
-          <Key>
-            <PropertyRef Name="id" />
-            <PropertyRef Name="name" />
-            <PropertyRef Name="start_ip_address" />
-            <PropertyRef Name="end_ip_address" />
-            <PropertyRef Name="create_date" />
-            <PropertyRef Name="modify_date" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="start_ip_address" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="end_ip_address" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
-        </EntityType>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="MoneyCollection">
           <Key>
             <PropertyRef Name="CollectionID" />
@@ -223,116 +189,155 @@ warning 6002: The table/view 'pos-mugdho.sys.database_firewall_rules' does not h
             <PropertyRef Name="UserID" />
           </Key>
           <Property Name="UserID" Type="Int32" Nullable="false" />
-          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="database_firewall_rules">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="start_ip_address" />
+            <PropertyRef Name="end_ip_address" />
+            <PropertyRef Name="create_date" />
+            <PropertyRef Name="modify_date" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="start_ip_address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="end_ip_address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="MoneyCollections" EntityType="Self.MoneyCollection" />
+          <EntitySet Name="Registrations" EntityType="Self.Registration" />
+          <EntitySet Name="StudentDues" EntityType="Self.StudentDue" />
+          <EntitySet Name="StudentRegistrations" EntityType="Self.StudentRegistration" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" />
+          <FunctionImport Name="GetPaymentReport" ReturnType="Collection(Model.GetPaymentReport_Result)">
+            <Parameter Name="RollNumber" Mode="In" Type="Int32" />
+            <Parameter Name="PaymentMonth" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="GetPaymentReport_Result">
+          <Property Type="Int32" Name="CollectionID" Nullable="false" />
+          <Property Type="Int32" Name="StudentRollNumber" Nullable="true" />
+          <Property Type="String" Name="CollectedAmount" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CollectorID" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CollectionMonth" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="StudentName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="TotalDue" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ByatikramDBModelStoreContainer" CdmEntityContainer="ByatikramDBEntities" >
-          <FunctionImportMapping FunctionImportName="GetPaymentReport" FunctionName="ByatikramDBModel.Store.GetPaymentReport">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="ByatikramDBModel.GetPaymentReport_Result">
-                <ScalarProperty Name="CollectionID" ColumnName="CollectionID" />
-                <ScalarProperty Name="StudentRollNumber" ColumnName="StudentRollNumber" />
-                <ScalarProperty Name="CollectedAmount" ColumnName="CollectedAmount" />
-                <ScalarProperty Name="CollectorID" ColumnName="CollectorID" />
-                <ScalarProperty Name="CollectionMonth" ColumnName="CollectionMonth" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <EntitySetMapping Name="database_firewall_rules">
-            <EntityTypeMapping TypeName="ByatikramDBModel.database_firewall_rules">
-              <MappingFragment StoreEntitySet="database_firewall_rules">
-                <ScalarProperty Name="modify_date" ColumnName="modify_date" />
-                <ScalarProperty Name="create_date" ColumnName="create_date" />
-                <ScalarProperty Name="end_ip_address" ColumnName="end_ip_address" />
-                <ScalarProperty Name="start_ip_address" ColumnName="start_ip_address" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
           <EntitySetMapping Name="MoneyCollections">
-            <EntityTypeMapping TypeName="ByatikramDBModel.MoneyCollection">
+            <EntityTypeMapping TypeName="Model.MoneyCollection">
               <MappingFragment StoreEntitySet="MoneyCollection">
-                <ScalarProperty Name="StudentName" ColumnName="StudentName" />
-                <ScalarProperty Name="CollectionMonth" ColumnName="CollectionMonth" />
-                <ScalarProperty Name="CollectorID" ColumnName="CollectorID" />
-                <ScalarProperty Name="CollectedAmount" ColumnName="CollectedAmount" />
-                <ScalarProperty Name="StudentRollNumber" ColumnName="StudentRollNumber" />
                 <ScalarProperty Name="CollectionID" ColumnName="CollectionID" />
+                <ScalarProperty Name="StudentRollNumber" ColumnName="StudentRollNumber" />
+                <ScalarProperty Name="CollectedAmount" ColumnName="CollectedAmount" />
+                <ScalarProperty Name="CollectorID" ColumnName="CollectorID" />
+                <ScalarProperty Name="CollectionMonth" ColumnName="CollectionMonth" />
+                <ScalarProperty Name="StudentName" ColumnName="StudentName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Registrations">
-            <EntityTypeMapping TypeName="ByatikramDBModel.Registration">
+            <EntityTypeMapping TypeName="Model.Registration">
               <MappingFragment StoreEntitySet="Registration">
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="CourseStartDate" ColumnName="CourseStartDate" />
-                <ScalarProperty Name="MonthlyFee" ColumnName="MonthlyFee" />
-                <ScalarProperty Name="Course" ColumnName="Course" />
-                <ScalarProperty Name="Version" ColumnName="Version" />
-                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
-                <ScalarProperty Name="AdmissionFee" ColumnName="AdmissionFee" />
-                <ScalarProperty Name="Class" ColumnName="Class" />
-                <ScalarProperty Name="School" ColumnName="School" />
-                <ScalarProperty Name="DoB" ColumnName="DoB" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="GuardiansName" ColumnName="GuardiansName" />
-                <ScalarProperty Name="StudentRollNumber" ColumnName="StudentRollNumber" />
-                <ScalarProperty Name="StudentName" ColumnName="StudentName" />
                 <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+                <ScalarProperty Name="StudentRollNumber" ColumnName="StudentRollNumber" />
+                <ScalarProperty Name="GuardiansName" ColumnName="GuardiansName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="DoB" ColumnName="DoB" />
+                <ScalarProperty Name="School" ColumnName="School" />
+                <ScalarProperty Name="Class" ColumnName="Class" />
+                <ScalarProperty Name="AdmissionFee" ColumnName="AdmissionFee" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="MonthlyFee" ColumnName="MonthlyFee" />
+                <ScalarProperty Name="CourseStartDate" ColumnName="CourseStartDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="StudentDues">
-            <EntityTypeMapping TypeName="ByatikramDBModel.StudentDue">
+            <EntityTypeMapping TypeName="Model.StudentDue">
               <MappingFragment StoreEntitySet="StudentDue">
-                <ScalarProperty Name="TotalDue" ColumnName="TotalDue" />
-                <ScalarProperty Name="RollNumber" ColumnName="RollNumber" />
                 <ScalarProperty Name="DueID" ColumnName="DueID" />
+                <ScalarProperty Name="RollNumber" ColumnName="RollNumber" />
+                <ScalarProperty Name="TotalDue" ColumnName="TotalDue" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="StudentRegistrations">
-            <EntityTypeMapping TypeName="ByatikramDBModel.StudentRegistration">
+            <EntityTypeMapping TypeName="Model.StudentRegistration">
               <MappingFragment StoreEntitySet="StudentRegistration">
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="CourseStartDate" ColumnName="CourseStartDate" />
-                <ScalarProperty Name="MonthlyFee" ColumnName="MonthlyFee" />
-                <ScalarProperty Name="Course" ColumnName="Course" />
-                <ScalarProperty Name="Version" ColumnName="Version" />
-                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
-                <ScalarProperty Name="AdmissionFee" ColumnName="AdmissionFee" />
-                <ScalarProperty Name="Class" ColumnName="Class" />
-                <ScalarProperty Name="School" ColumnName="School" />
-                <ScalarProperty Name="DoB" ColumnName="DoB" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="GuardiansName" ColumnName="GuardiansName" />
-                <ScalarProperty Name="StudentRollNumber" ColumnName="StudentRollNumber" />
-                <ScalarProperty Name="StudentName" ColumnName="StudentName" />
                 <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+                <ScalarProperty Name="StudentRollNumber" ColumnName="StudentRollNumber" />
+                <ScalarProperty Name="GuardiansName" ColumnName="GuardiansName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="DoB" ColumnName="DoB" />
+                <ScalarProperty Name="School" ColumnName="School" />
+                <ScalarProperty Name="Class" ColumnName="Class" />
+                <ScalarProperty Name="AdmissionFee" ColumnName="AdmissionFee" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="MonthlyFee" ColumnName="MonthlyFee" />
+                <ScalarProperty Name="CourseStartDate" ColumnName="CourseStartDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="ByatikramDBModel.User">
+            <EntityTypeMapping TypeName="Model.User">
               <MappingFragment StoreEntitySet="Users">
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="database_firewall_rules">
+            <EntityTypeMapping TypeName="Model.database_firewall_rules">
+              <MappingFragment StoreEntitySet="database_firewall_rules">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="start_ip_address" ColumnName="start_ip_address" />
+                <ScalarProperty Name="end_ip_address" ColumnName="end_ip_address" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+                <ScalarProperty Name="modify_date" ColumnName="modify_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetPaymentReport" FunctionName="Model.Store.GetPaymentReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.GetPaymentReport_Result">
+                <ScalarProperty Name="CollectionID" ColumnName="CollectionID" />
+                <ScalarProperty Name="StudentRollNumber" ColumnName="StudentRollNumber" />
+                <ScalarProperty Name="CollectedAmount" ColumnName="CollectedAmount" />
+                <ScalarProperty Name="CollectorID" ColumnName="CollectorID" />
+                <ScalarProperty Name="CollectionMonth" ColumnName="CollectionMonth" />
+                <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+                <ScalarProperty Name="TotalDue" ColumnName="TotalDue" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

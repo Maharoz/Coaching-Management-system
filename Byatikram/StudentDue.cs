@@ -10,15 +10,12 @@
 namespace Byatikram
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class GetPaymentReport_Result
+    public partial class StudentDue
     {
-        public int CollectionID { get; set; }
-        public Nullable<int> StudentRollNumber { get; set; }
-        public string CollectedAmount { get; set; }
-        public string CollectorID { get; set; }
-        public string CollectionMonth { get; set; }
-        public string StudentName { get; set; }
+        public int DueID { get; set; }
+        public Nullable<int> RollNumber { get; set; }
         public Nullable<int> TotalDue { get; set; }
     }
 }

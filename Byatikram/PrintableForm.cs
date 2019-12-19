@@ -24,10 +24,12 @@ namespace Byatikram
         {
 
 
-            using (ByatikramDBEntities db = new ByatikramDBEntities())
+            using (Entities db = new Entities())
             {
+                int rollNumber;
+                int.TryParse(textBox1.Text, out rollNumber);
                 GetPaymentReport_ResultBindingSource.DataSource =
-                    db.GetPaymentReport(textBox1.Text, textBox2.Text).FirstOrDefault();
+                    db.GetPaymentReport(rollNumber, textBox2.Text).FirstOrDefault();
 
                 Microsoft.Reporting.WinForms.ReportParameter[] rParams =
                     new Microsoft.Reporting.WinForms.ReportParameter[]
@@ -43,10 +45,12 @@ namespace Byatikram
 
         private void button1_Click(object sender, EventArgs e)
         {
-            using (ByatikramDBEntities db = new ByatikramDBEntities())
+            using (Entities db = new Entities())
             {
+                int rollNumber;
+                int.TryParse(textBox1.Text, out rollNumber);
                 GetPaymentReport_ResultBindingSource.DataSource =
-                    db.GetPaymentReport(textBox1.Text, textBox2.Text.ToString()).FirstOrDefault();
+                    db.GetPaymentReport(rollNumber, textBox2.Text).FirstOrDefault();
 
                 Microsoft.Reporting.WinForms.ReportParameter[] rParams =
                     new Microsoft.Reporting.WinForms.ReportParameter[]

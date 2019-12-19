@@ -15,7 +15,7 @@ namespace Byatikram
     public partial class MoneyCollection
     {
         public int CollectionID { get; set; }
-        public string StudentRollNumber { get; set; }
+        public Nullable<int> StudentRollNumber { get; set; }
         public string CollectedAmount { get; set; }
         public string CollectorID { get; set; }
         public string CollectionMonth { get; set; }

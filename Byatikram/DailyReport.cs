@@ -1,0 +1,44 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Byatikram
+{
+    public partial class DailyReport : Form
+    {
+        public DailyReport()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection(@"Data Source=celsa.database.windows.net;Initial Catalog=pos-mugdho;User ID=celsa;Password=Qwerty1@3$5"))
+            {
+
+                connection.Open();
+                string sql = "select * from MoneyCollection where CollectionDate=" + DateTime.Today;
+                SqlDataAdapter sda = new SqlDataAdapter("select * from MoneyCollection where CollectionDate='" +DateTime.Today +"'", connection);
+                DataTable dtbl = new DataTable();
+                sda.Fill(dtbl);
+                dataGridView1.DataSource = dtbl;
+                connection.Close();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            masterForm objFrmMain = new masterForm();
+            this.Hide();
+            objFrmMain.Show();
+        }
+    }
+}

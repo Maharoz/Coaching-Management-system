@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.bunifuMetroTextbox1 = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.bunifuMetroTextbox2 = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.EmailTextBox = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.PasswordText = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -48,41 +48,41 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // bunifuMetroTextbox1
+            // EmailTextBox
             // 
-            this.bunifuMetroTextbox1.BackColor = System.Drawing.Color.White;
-            this.bunifuMetroTextbox1.BorderColorFocused = System.Drawing.Color.SeaGreen;
-            this.bunifuMetroTextbox1.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuMetroTextbox1.BorderColorMouseHover = System.Drawing.Color.SeaGreen;
-            this.bunifuMetroTextbox1.BorderThickness = 3;
-            this.bunifuMetroTextbox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuMetroTextbox1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.bunifuMetroTextbox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuMetroTextbox1.isPassword = false;
-            this.bunifuMetroTextbox1.Location = new System.Drawing.Point(158, 157);
-            this.bunifuMetroTextbox1.Margin = new System.Windows.Forms.Padding(4);
-            this.bunifuMetroTextbox1.Name = "bunifuMetroTextbox1";
-            this.bunifuMetroTextbox1.Size = new System.Drawing.Size(370, 44);
-            this.bunifuMetroTextbox1.TabIndex = 2;
-            this.bunifuMetroTextbox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.EmailTextBox.BackColor = System.Drawing.Color.White;
+            this.EmailTextBox.BorderColorFocused = System.Drawing.Color.SeaGreen;
+            this.EmailTextBox.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.EmailTextBox.BorderColorMouseHover = System.Drawing.Color.SeaGreen;
+            this.EmailTextBox.BorderThickness = 3;
+            this.EmailTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.EmailTextBox.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.EmailTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.EmailTextBox.isPassword = false;
+            this.EmailTextBox.Location = new System.Drawing.Point(158, 157);
+            this.EmailTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.EmailTextBox.Name = "EmailTextBox";
+            this.EmailTextBox.Size = new System.Drawing.Size(370, 44);
+            this.EmailTextBox.TabIndex = 2;
+            this.EmailTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
-            // bunifuMetroTextbox2
+            // PasswordText
             // 
-            this.bunifuMetroTextbox2.BackColor = System.Drawing.Color.White;
-            this.bunifuMetroTextbox2.BorderColorFocused = System.Drawing.Color.SeaGreen;
-            this.bunifuMetroTextbox2.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuMetroTextbox2.BorderColorMouseHover = System.Drawing.Color.SeaGreen;
-            this.bunifuMetroTextbox2.BorderThickness = 3;
-            this.bunifuMetroTextbox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuMetroTextbox2.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.bunifuMetroTextbox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuMetroTextbox2.isPassword = true;
-            this.bunifuMetroTextbox2.Location = new System.Drawing.Point(158, 257);
-            this.bunifuMetroTextbox2.Margin = new System.Windows.Forms.Padding(4);
-            this.bunifuMetroTextbox2.Name = "bunifuMetroTextbox2";
-            this.bunifuMetroTextbox2.Size = new System.Drawing.Size(370, 44);
-            this.bunifuMetroTextbox2.TabIndex = 3;
-            this.bunifuMetroTextbox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.PasswordText.BackColor = System.Drawing.Color.White;
+            this.PasswordText.BorderColorFocused = System.Drawing.Color.SeaGreen;
+            this.PasswordText.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.PasswordText.BorderColorMouseHover = System.Drawing.Color.SeaGreen;
+            this.PasswordText.BorderThickness = 3;
+            this.PasswordText.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.PasswordText.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.PasswordText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.PasswordText.isPassword = true;
+            this.PasswordText.Location = new System.Drawing.Point(158, 257);
+            this.PasswordText.Margin = new System.Windows.Forms.Padding(4);
+            this.PasswordText.Name = "PasswordText";
+            this.PasswordText.Size = new System.Drawing.Size(370, 44);
+            this.PasswordText.TabIndex = 3;
+            this.PasswordText.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // label1
             // 
@@ -114,8 +114,8 @@
             this.ClientSize = new System.Drawing.Size(676, 492);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.bunifuMetroTextbox2);
-            this.Controls.Add(this.bunifuMetroTextbox1);
+            this.Controls.Add(this.PasswordText);
+            this.Controls.Add(this.EmailTextBox);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -128,8 +128,8 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private Bunifu.Framework.UI.BunifuMetroTextbox bunifuMetroTextbox1;
-        private Bunifu.Framework.UI.BunifuMetroTextbox bunifuMetroTextbox2;
+        private Bunifu.Framework.UI.BunifuMetroTextbox EmailTextBox;
+        private Bunifu.Framework.UI.BunifuMetroTextbox PasswordText;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
     }

@@ -12,11 +12,11 @@ namespace Byatikram
     using System;
     using System.Collections.Generic;
     
-    public partial class StudentRegistration
+    public partial class Registration
     {
         public int StudentID { get; set; }
         public string StudentName { get; set; }
-        public string StudentRollNumber { get; set; }
+        public Nullable<int> StudentRollNumber { get; set; }
         public string GuardiansName { get; set; }
         public string Address { get; set; }
         public Nullable<System.DateTime> DoB { get; set; }

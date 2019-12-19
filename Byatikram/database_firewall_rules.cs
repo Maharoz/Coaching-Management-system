@@ -10,15 +10,15 @@
 namespace Byatikram
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class GetPaymentReport_Result
+    public partial class database_firewall_rules
     {
-        public int CollectionID { get; set; }
-        public Nullable<int> StudentRollNumber { get; set; }
-        public string CollectedAmount { get; set; }
-        public string CollectorID { get; set; }
-        public string CollectionMonth { get; set; }
-        public string StudentName { get; set; }
-        public Nullable<int> TotalDue { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
+        public string start_ip_address { get; set; }
+        public string end_ip_address { get; set; }
+        public System.DateTime create_date { get; set; }
+        public System.DateTime modify_date { get; set; }
     }
 }

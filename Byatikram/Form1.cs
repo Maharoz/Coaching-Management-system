@@ -22,17 +22,14 @@ namespace Byatikram
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //SqlConnection sqlcon = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ByatikramDB;Integrated Security=True");
-            string path = Path.GetFullPath(Environment.CurrentDirectory);
-            string databaseName = "ByatikramDB.mdf";
             SqlConnection sqlcon = new SqlConnection(@"Data Source=celsa.database.windows.net;Initial Catalog=pos-mugdho;User ID=celsa;Password=Qwerty1@3$5");
 
-            string query = "Select * from Users Where Email='" + bunifuMetroTextbox1.Text.Trim() + "' and password = '" + bunifuMetroTextbox2.Text.Trim() + "'";
+            string query = "Select * from Users Where Email='" + EmailTextBox.Text.Trim() + "' and password = '" + PasswordText.Text.Trim() + "'";
             SqlDataAdapter sda = new SqlDataAdapter(query, sqlcon);
 
 
 
-            using (SqlConnection connection = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;AttachDbFilename=" + path + @"\" + databaseName + ";Integrated Security=True"))
+            using (SqlConnection connection = new SqlConnection(@"Data Source=celsa.database.windows.net;Initial Catalog=pos-mugdho;User ID=celsa;Password=Qwerty1@3$5"))
             {
                 SqlCommand command = new SqlCommand(query, connection);
                 connection.Open();

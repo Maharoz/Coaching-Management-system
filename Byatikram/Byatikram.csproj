@@ -79,6 +79,15 @@
     <Reference Include="Telerik.ReportViewer.WinForms, Version=11.1.17.614, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DailyReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DailyReport.Designer.cs">
+      <DependentUpon>DailyReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="database_firewall_rules.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="FeeCollection.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,7 +101,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="GetPaymentReport_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="masterForm.cs">
       <SubType>Form</SubType>
@@ -115,8 +124,29 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
     <Compile Include="MoneyCollection.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MonthlyReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MonthlyReport.Designer.cs">
+      <DependentUpon>MonthlyReport.cs</DependentUpon>
     </Compile>
     <Compile Include="PrintableForm.cs">
       <SubType>Form</SubType>
@@ -126,14 +156,37 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registration.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentDue.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentList.Designer.cs">
+      <DependentUpon>StudentList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Users.cs" />
     <Compile Include="StudentRegistration.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="_pos_mugdhoDataSet.cs">
+      <DependentUpon>_pos_mugdhoDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="_pos_mugdhoDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_pos_mugdhoDataSet.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="DailyReport.resx">
+      <DependentUpon>DailyReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FeeCollection.resx">
       <DependentUpon>FeeCollection.cs</DependentUpon>
     </EmbeddedResource>
@@ -142,6 +195,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="masterForm.resx">
       <DependentUpon>masterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MonthlyReport.resx">
+      <DependentUpon>MonthlyReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PrintableForm.resx">
       <DependentUpon>PrintableForm.cs</DependentUpon>
@@ -158,12 +214,22 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Report.rdlc" />
+    <EmbeddedResource Include="StudentList.resx">
+      <DependentUpon>StudentList.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="Model.edmx.diagram">
       <DependentUpon>Model.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\GetPaymentReport_Result.datasource" />
@@ -176,6 +242,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="_pos_mugdhoDataSet.xsc">
+      <DependentUpon>_pos_mugdhoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_pos_mugdhoDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_pos_mugdhoDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_pos_mugdhoDataSet.xss">
+      <DependentUpon>_pos_mugdhoDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -198,6 +275,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
