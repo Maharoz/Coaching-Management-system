@@ -79,6 +79,7 @@
     <Reference Include="Telerik.ReportViewer.WinForms, Version=11.1.17.614, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
     <Compile Include="DailyReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +103,12 @@
     </Compile>
     <Compile Include="GetPaymentReport_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="masterFormForEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="masterFormForEdit.Designer.cs">
+      <DependentUpon>masterFormForEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="masterForm.cs">
       <SubType>Form</SubType>
@@ -192,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="masterFormForEdit.resx">
+      <DependentUpon>masterFormForEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="masterForm.resx">
       <DependentUpon>masterForm.cs</DependentUpon>

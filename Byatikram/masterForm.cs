@@ -4,8 +4,10 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -27,6 +29,7 @@ namespace Byatikram
         SqlCommand dmd;
         SqlCommand fmd;
         SqlCommand gmd;
+        SqlCommand pmd;
         SqlDataAdapter adapt;
         public masterForm()
         {
@@ -63,6 +66,7 @@ namespace Byatikram
             }
             else
             {
+                //if(AdmissionFeeDropdown.selectedValue<TotalPaybleTextbox.Text)
             if (RollNumberTextBox.Text != "" && studentNameTextBox.Text != "")
             {
                 cmd = new SqlCommand("insert into Registration(StudentName,StudentRollNumber," +
@@ -82,8 +86,13 @@ namespace Byatikram
                 fmd = new SqlCommand(@"insert into Reference(ReferenceRollNumber,ReferedFor,DiscountAmount) values (@ReferenceRollNumber,@ReferedFor,@DiscountAmount)", con);
                 gmd = new SqlCommand(@"insert into MoneyCollection(StudentRollNumber,
                                                CollectedAmount,CollectorID,CollectionMonth,
-                                            StudentName,CollectionDate,CollectionType,OtherDiscount) values(@StudentRollNumber,@CollectedAmount,@CollectorID,
-                                            @CollectionMonth,@StudentName,@CollectionDate,@CollectionType,@OtherDiscount)", con);
+                                            StudentName,CollectionDate,CollectionType,OtherDiscount,TrxID) values(@StudentRollNumber,@CollectedAmount,@CollectorID,
+                                            @CollectionMonth,@StudentName,@CollectionDate,@CollectionType,@OtherDiscount,@TrxID)", con);
+
+                pmd = new SqlCommand(@"insert into MoneyCollection(StudentRollNumber,
+                                               CollectedAmount,CollectorID,CollectionMonth,
+                                            StudentName,CollectionDate,CollectionType,OtherDiscount,TrxID) values(@StudentRollNumber,@CollectedAmount,@CollectorID,
+                                            @CollectionMonth,@StudentName,@CollectionDate,@CollectionType,@OtherDiscount,@TrxID)", con);
                     con.Open();
                 cmd.Parameters.AddWithValue("@StudentName", studentNameTextBox.Text);
                 
@@ -107,16 +116,20 @@ namespace Byatikram
                 int paidAmountDuringAddmission;
                 int.TryParse(PaidAmountTextbox.Text, out paidAmountDuringAddmission);
 
+                int addmissionFee;
+                int.TryParse(AdmissionFeeDropdown.selectedValue, out addmissionFee);
+                int monthlyPayable = paidAmountDuringAddmission - addmissionFee;
+
                 cmd.Parameters.AddWithValue("@GuardiansName", GuardiansNameTextbox.Text);
                 cmd.Parameters.AddWithValue("@Address", AddressTexbox.Text);
                 cmd.Parameters.AddWithValue("@DoB", bunifuDatepicker2.Value);
                 cmd.Parameters.AddWithValue("@School", bunifuDropdown1.selectedValue);
                 cmd.Parameters.AddWithValue("@Class", bunifuDropdown3.selectedValue);
-                cmd.Parameters.AddWithValue("@AdmissionFee", bunifuDropdown6.selectedValue);
+                cmd.Parameters.AddWithValue("@AdmissionFee", AdmissionFeeDropdown.selectedValue);
                 cmd.Parameters.AddWithValue("@MobileNumber", MobileTextBox.Text);
                 cmd.Parameters.AddWithValue("@Version", bunifuDropdown2.selectedValue);
                 cmd.Parameters.AddWithValue("@Course", bunifuDropdown4.selectedValue);
-                cmd.Parameters.AddWithValue("@MonthlyFee", bunifuDropdown5.selectedValue);
+                cmd.Parameters.AddWithValue("@MonthlyFee", monthlyFeeDropDown.selectedValue);
                 cmd.Parameters.AddWithValue("@CourseStartDate", bunifuDatepicker3.Value);
                 cmd.Parameters.AddWithValue("@Status", bunifuDropdown7.selectedValue);
                 cmd.Parameters.AddWithValue("@CreationDate", DateTime.Today);
@@ -136,23 +149,45 @@ namespace Byatikram
                     fmd.Parameters.AddWithValue("@ReferenceRollNumber", referenceRollNumber);
                 }
 
+                string trxID = RollNumberTextBox.Text + DateTime.Today.Day.ToString() + DateTime.Today.Month.ToString() +
+                               DateTime.Today.Year.ToString();
+
                 gmd.Parameters.AddWithValue("@StudentRollNumber", rollNumber);
-                gmd.Parameters.AddWithValue("@CollectedAmount", paidAmountDuringAddmission.ToString());
+                gmd.Parameters.AddWithValue("@CollectedAmount", AdmissionFeeDropdown.selectedValue.ToString());
                 gmd.Parameters.AddWithValue("@StudentName", studentNameTextBox.Text);
-                gmd.Parameters.AddWithValue("@CollectionMonth", string.Empty);
+                string monthName = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(bunifuDatepicker3.Value.Month);
+                gmd.Parameters.AddWithValue("@CollectionMonth", monthName + ","+ bunifuDatepicker3.Value.Year.ToString());
                 gmd.Parameters.AddWithValue("@CollectorID", Users.UserID);
                 gmd.Parameters.AddWithValue("@CollectionDate", DateTime.Today);
                 gmd.Parameters.AddWithValue("@CollectionType", "Admission");
-                gmd.Parameters.AddWithValue("@OtherDiscount", DiscountTextbox.Text);
+                gmd.Parameters.AddWithValue("@OtherDiscount", DiscountTextbox.Text); 
+                gmd.Parameters.AddWithValue("@TrxID", trxID);
 
-                    cmd.ExecuteNonQuery();
+
+
+                pmd.Parameters.AddWithValue("@StudentRollNumber", rollNumber);
+                pmd.Parameters.AddWithValue("@CollectedAmount", monthlyPayable.ToString());
+                pmd.Parameters.AddWithValue("@StudentName", studentNameTextBox.Text);
+              //  string monthName = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(bunifuDatepicker3.Value.Month);
+                pmd.Parameters.AddWithValue("@CollectionMonth", monthName + "," + bunifuDatepicker3.Value.Year.ToString());
+                pmd.Parameters.AddWithValue("@CollectorID", Users.UserID);
+                pmd.Parameters.AddWithValue("@CollectionDate", DateTime.Today);
+                pmd.Parameters.AddWithValue("@CollectionType", "MonthlyFee");
+                pmd.Parameters.AddWithValue("@OtherDiscount", DiscountTextbox.Text);
+                pmd.Parameters.AddWithValue("@TrxID", trxID);
+
+
+
+                cmd.ExecuteNonQuery();
                 dmd.ExecuteNonQuery();
                 fmd.ExecuteNonQuery();
                 gmd.ExecuteNonQuery();
+                pmd.ExecuteNonQuery();
 
                     con.Close();
                 MessageBox.Show("Record Inserted Successfully");
-
+               
+               //SendSMS(RollNumberTextBox.Text, paidAmountDuringAddmission.ToString(), trxID,MobileTextBox.Text);
                 masterForm NewForm = new masterForm();
                 NewForm.Show();
                 this.Dispose(false);
@@ -179,7 +214,7 @@ namespace Byatikram
         private void bunifuDropdown5_onItemSelected(object sender, EventArgs e)
         {
             payable = 0;
-            int.TryParse(bunifuDropdown5.selectedValue, out monthlyFee);
+            int.TryParse(monthlyFeeDropDown.selectedValue, out monthlyFee);
             payable = AdmissionFee + monthlyFee;
             payableForDue = AdmissionFee + monthlyFee;
             TotalPaybleTextbox.Text = payable.ToString();
@@ -193,7 +228,7 @@ namespace Byatikram
         private void bunifuDropdown6_onItemSelected(object sender, EventArgs e)
         {
             payable = 0;
-            int.TryParse(bunifuDropdown6.selectedValue, out AdmissionFee);
+            int.TryParse(AdmissionFeeDropdown.selectedValue, out AdmissionFee);
             payable = AdmissionFee + monthlyFee;
             payableForDue = AdmissionFee + monthlyFee;
             TotalPaybleTextbox.Text = payable.ToString();
@@ -235,6 +270,43 @@ namespace Byatikram
             MonthlyReport mlr = new MonthlyReport();
             this.Hide();
             mlr.Show();
+        }
+
+        private void SendSMS(string rollNumber, string amount, string trxID,string mobileNumber)
+        {
+            string result = "";
+            WebRequest request = null;
+            HttpWebResponse response = null;
+            try
+            {
+                //01711789090
+                String to = "01711789090," + mobileNumber; //Recipient Phone Number multiple number must be separated by comma
+                String token = "a201640750cff06a9171f13db8412ec1"; //generate token from the control panel
+                String message = System.Uri.EscapeUriString("'Byatikram Academic Care'" + " Money Received " + amount + "Tk.from roll number " + rollNumber + " .Transaction id " + trxID); //do not use single quotation (') in the message to avoid forbidden result
+                String url = "http://api.greenweb.com.bd/api.php?token=" + token + "&to=" + to + "&message=" + message;
+                request = WebRequest.Create(url);
+
+                // Send the 'HttpWebRequest' and wait for response.
+                response = (HttpWebResponse)request.GetResponse();
+                Stream stream = response.GetResponseStream();
+                Encoding ec = System.Text.Encoding.GetEncoding("utf-8");
+                StreamReader reader = new
+                    System.IO.StreamReader(stream, ec);
+                result = reader.ReadToEnd();
+                Console.WriteLine(result);
+                reader.Close();
+                stream.Close();
+            }
+            catch (Exception exp)
+            {
+                Console.WriteLine(exp.ToString());
+            }
+            finally
+            {
+                if (response != null)
+                    response.Close();
+            }
+
         }
     }
 }

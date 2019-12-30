@@ -196,9 +196,9 @@
         "July",
         "August",
         "September",
-        "Octeber",
+        "October",
         "November",
-        "Dceember"};
+        "December"};
             this.bunifuDropdown1.Location = new System.Drawing.Point(352, 195);
             this.bunifuDropdown1.Name = "bunifuDropdown1";
             this.bunifuDropdown1.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));

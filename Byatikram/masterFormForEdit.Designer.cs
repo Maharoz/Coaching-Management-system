@@ -1,6 +1,6 @@
 ﻿namespace Byatikram
 {
-    partial class masterForm
+    partial class masterFormForEdit
     {
         /// <summary>
         /// Required designer variable.
@@ -60,29 +60,22 @@
             this.button5 = new System.Windows.Forms.Button();
             this.GuardiansNameTextbox = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.AddressTexbox = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.bunifuDatepicker2 = new Bunifu.Framework.UI.BunifuDatepicker();
+            this.DateOfBirthPicker = new Bunifu.Framework.UI.BunifuDatepicker();
             this.MobileTextBox = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.bunifuDropdown1 = new Bunifu.Framework.UI.BunifuDropdown();
-            this.bunifuDropdown2 = new Bunifu.Framework.UI.BunifuDropdown();
-            this.bunifuDropdown3 = new Bunifu.Framework.UI.BunifuDropdown();
-            this.bunifuDropdown4 = new Bunifu.Framework.UI.BunifuDropdown();
-            this.monthlyFeeDropDown = new Bunifu.Framework.UI.BunifuDropdown();
-            this.AdmissionFeeDropdown = new Bunifu.Framework.UI.BunifuDropdown();
-            this.bunifuDropdown7 = new Bunifu.Framework.UI.BunifuDropdown();
+            this.schoolDropDown = new Bunifu.Framework.UI.BunifuDropdown();
+            this.VersionDropDown = new Bunifu.Framework.UI.BunifuDropdown();
+            this.classDropdown = new Bunifu.Framework.UI.BunifuDropdown();
+            this.CourseDropDown = new Bunifu.Framework.UI.BunifuDropdown();
+            this.MonthlyFeeDropDown = new Bunifu.Framework.UI.BunifuDropdown();
+            this.AddmissionFeeDropDown = new Bunifu.Framework.UI.BunifuDropdown();
+            this.StatusDropdown = new Bunifu.Framework.UI.BunifuDropdown();
             this.bunifuDatepicker3 = new Bunifu.Framework.UI.BunifuDatepicker();
             this.label16 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
-            this.ReferenceRollTextBox = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label18 = new System.Windows.Forms.Label();
-            this.DiscountTextbox = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.TotalPaybleTextbox = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.PaidAmountTextbox = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.DueTextbox = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
+            this.ReferenceRollTextBox = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.button8 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
@@ -319,7 +312,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(828, 633);
+            this.label6.Location = new System.Drawing.Point(827, 402);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(74, 29);
             this.label6.TabIndex = 11;
@@ -331,7 +324,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(226, 639);
+            this.label7.Location = new System.Drawing.Point(226, 632);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(185, 29);
             this.label7.TabIndex = 12;
@@ -430,11 +423,11 @@
             // 
             this.button5.BackColor = System.Drawing.Color.SeaGreen;
             this.button5.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(612, 697);
+            this.button5.Location = new System.Drawing.Point(508, 704);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(426, 45);
+            this.button5.Size = new System.Drawing.Size(275, 45);
             this.button5.TabIndex = 21;
-            this.button5.Text = "Submit";
+            this.button5.Text = "Edit";
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -474,18 +467,18 @@
             this.AddressTexbox.TabIndex = 23;
             this.AddressTexbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
-            // bunifuDatepicker2
+            // DateOfBirthPicker
             // 
-            this.bunifuDatepicker2.BackColor = System.Drawing.Color.SeaGreen;
-            this.bunifuDatepicker2.BorderRadius = 0;
-            this.bunifuDatepicker2.ForeColor = System.Drawing.Color.White;
-            this.bunifuDatepicker2.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.bunifuDatepicker2.FormatCustom = null;
-            this.bunifuDatepicker2.Location = new System.Drawing.Point(428, 410);
-            this.bunifuDatepicker2.Name = "bunifuDatepicker2";
-            this.bunifuDatepicker2.Size = new System.Drawing.Size(308, 36);
-            this.bunifuDatepicker2.TabIndex = 24;
-            this.bunifuDatepicker2.Value = new System.DateTime(2019, 11, 27, 19, 38, 12, 738);
+            this.DateOfBirthPicker.BackColor = System.Drawing.Color.SeaGreen;
+            this.DateOfBirthPicker.BorderRadius = 0;
+            this.DateOfBirthPicker.ForeColor = System.Drawing.Color.White;
+            this.DateOfBirthPicker.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.DateOfBirthPicker.FormatCustom = null;
+            this.DateOfBirthPicker.Location = new System.Drawing.Point(428, 410);
+            this.DateOfBirthPicker.Name = "DateOfBirthPicker";
+            this.DateOfBirthPicker.Size = new System.Drawing.Size(308, 36);
+            this.DateOfBirthPicker.TabIndex = 24;
+            this.DateOfBirthPicker.Value = new System.DateTime(2019, 11, 27, 19, 38, 12, 738);
             // 
             // MobileTextBox
             // 
@@ -505,12 +498,12 @@
             this.MobileTextBox.TabIndex = 25;
             this.MobileTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
-            // bunifuDropdown1
+            // schoolDropDown
             // 
-            this.bunifuDropdown1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuDropdown1.BorderRadius = 3;
-            this.bunifuDropdown1.ForeColor = System.Drawing.Color.White;
-            this.bunifuDropdown1.Items = new string[] {
+            this.schoolDropDown.BackColor = System.Drawing.Color.Transparent;
+            this.schoolDropDown.BorderRadius = 3;
+            this.schoolDropDown.ForeColor = System.Drawing.Color.White;
+            this.schoolDropDown.Items = new string[] {
         "Preparatory Girls\'",
         "St.Joseph",
         "Preparatory Girls\'",
@@ -525,37 +518,37 @@
         "Holycross",
         "VNS",
         "OTHERS"};
-            this.bunifuDropdown1.Location = new System.Drawing.Point(428, 460);
-            this.bunifuDropdown1.Name = "bunifuDropdown1";
-            this.bunifuDropdown1.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.bunifuDropdown1.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.bunifuDropdown1.selectedIndex = -1;
-            this.bunifuDropdown1.Size = new System.Drawing.Size(308, 35);
-            this.bunifuDropdown1.TabIndex = 27;
+            this.schoolDropDown.Location = new System.Drawing.Point(428, 460);
+            this.schoolDropDown.Name = "schoolDropDown";
+            this.schoolDropDown.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.schoolDropDown.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.schoolDropDown.selectedIndex = -1;
+            this.schoolDropDown.Size = new System.Drawing.Size(308, 35);
+            this.schoolDropDown.TabIndex = 27;
             // 
-            // bunifuDropdown2
+            // VersionDropDown
             // 
-            this.bunifuDropdown2.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuDropdown2.BorderRadius = 3;
-            this.bunifuDropdown2.ForeColor = System.Drawing.Color.White;
-            this.bunifuDropdown2.Items = new string[] {
+            this.VersionDropDown.BackColor = System.Drawing.Color.Transparent;
+            this.VersionDropDown.BorderRadius = 3;
+            this.VersionDropDown.ForeColor = System.Drawing.Color.White;
+            this.VersionDropDown.Items = new string[] {
         "English Version",
         "Bangla Version",
         "English Medium"};
-            this.bunifuDropdown2.Location = new System.Drawing.Point(428, 567);
-            this.bunifuDropdown2.Name = "bunifuDropdown2";
-            this.bunifuDropdown2.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.bunifuDropdown2.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.bunifuDropdown2.selectedIndex = -1;
-            this.bunifuDropdown2.Size = new System.Drawing.Size(308, 35);
-            this.bunifuDropdown2.TabIndex = 28;
+            this.VersionDropDown.Location = new System.Drawing.Point(428, 567);
+            this.VersionDropDown.Name = "VersionDropDown";
+            this.VersionDropDown.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.VersionDropDown.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.VersionDropDown.selectedIndex = -1;
+            this.VersionDropDown.Size = new System.Drawing.Size(308, 35);
+            this.VersionDropDown.TabIndex = 28;
             // 
-            // bunifuDropdown3
+            // classDropdown
             // 
-            this.bunifuDropdown3.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuDropdown3.BorderRadius = 3;
-            this.bunifuDropdown3.ForeColor = System.Drawing.Color.White;
-            this.bunifuDropdown3.Items = new string[] {
+            this.classDropdown.BackColor = System.Drawing.Color.Transparent;
+            this.classDropdown.BorderRadius = 3;
+            this.classDropdown.ForeColor = System.Drawing.Color.White;
+            this.classDropdown.Items = new string[] {
         "Three",
         "Four",
         "Six",
@@ -572,40 +565,40 @@
         "Grade-7",
         "Grade-8",
         "O Level"};
-            this.bunifuDropdown3.Location = new System.Drawing.Point(428, 512);
-            this.bunifuDropdown3.Name = "bunifuDropdown3";
-            this.bunifuDropdown3.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.bunifuDropdown3.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.bunifuDropdown3.selectedIndex = -1;
-            this.bunifuDropdown3.Size = new System.Drawing.Size(308, 35);
-            this.bunifuDropdown3.TabIndex = 29;
-            this.bunifuDropdown3.onItemSelected += new System.EventHandler(this.bunifuDropdown3_onItemSelected);
+            this.classDropdown.Location = new System.Drawing.Point(428, 512);
+            this.classDropdown.Name = "classDropdown";
+            this.classDropdown.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.classDropdown.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.classDropdown.selectedIndex = -1;
+            this.classDropdown.Size = new System.Drawing.Size(308, 35);
+            this.classDropdown.TabIndex = 29;
+            this.classDropdown.onItemSelected += new System.EventHandler(this.bunifuDropdown3_onItemSelected);
             // 
-            // bunifuDropdown4
+            // CourseDropDown
             // 
-            this.bunifuDropdown4.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuDropdown4.BorderRadius = 3;
-            this.bunifuDropdown4.ForeColor = System.Drawing.Color.White;
-            this.bunifuDropdown4.Items = new string[] {
+            this.CourseDropDown.BackColor = System.Drawing.Color.Transparent;
+            this.CourseDropDown.BorderRadius = 3;
+            this.CourseDropDown.ForeColor = System.Drawing.Color.White;
+            this.CourseDropDown.Items = new string[] {
         "All Subjects",
         "Only English",
         "English Math",
         "Only Math",
         "Model Test"};
-            this.bunifuDropdown4.Location = new System.Drawing.Point(1015, 223);
-            this.bunifuDropdown4.Name = "bunifuDropdown4";
-            this.bunifuDropdown4.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.bunifuDropdown4.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.bunifuDropdown4.selectedIndex = -1;
-            this.bunifuDropdown4.Size = new System.Drawing.Size(308, 35);
-            this.bunifuDropdown4.TabIndex = 30;
+            this.CourseDropDown.Location = new System.Drawing.Point(1015, 223);
+            this.CourseDropDown.Name = "CourseDropDown";
+            this.CourseDropDown.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.CourseDropDown.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.CourseDropDown.selectedIndex = -1;
+            this.CourseDropDown.Size = new System.Drawing.Size(308, 35);
+            this.CourseDropDown.TabIndex = 30;
             // 
-            // monthlyFeeDropDown
+            // MonthlyFeeDropDown
             // 
-            this.monthlyFeeDropDown.BackColor = System.Drawing.Color.Transparent;
-            this.monthlyFeeDropDown.BorderRadius = 3;
-            this.monthlyFeeDropDown.ForeColor = System.Drawing.Color.White;
-            this.monthlyFeeDropDown.Items = new string[] {
+            this.MonthlyFeeDropDown.BackColor = System.Drawing.Color.Transparent;
+            this.MonthlyFeeDropDown.BorderRadius = 3;
+            this.MonthlyFeeDropDown.ForeColor = System.Drawing.Color.White;
+            this.MonthlyFeeDropDown.Items = new string[] {
         "1000",
         "2000",
         "1200",
@@ -615,47 +608,47 @@
         "3500",
         "4000",
         "5000"};
-            this.monthlyFeeDropDown.Location = new System.Drawing.Point(1015, 277);
-            this.monthlyFeeDropDown.Name = "monthlyFeeDropDown";
-            this.monthlyFeeDropDown.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.monthlyFeeDropDown.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.monthlyFeeDropDown.selectedIndex = -1;
-            this.monthlyFeeDropDown.Size = new System.Drawing.Size(311, 35);
-            this.monthlyFeeDropDown.TabIndex = 31;
-            this.monthlyFeeDropDown.onItemSelected += new System.EventHandler(this.bunifuDropdown5_onItemSelected);
+            this.MonthlyFeeDropDown.Location = new System.Drawing.Point(1015, 277);
+            this.MonthlyFeeDropDown.Name = "MonthlyFeeDropDown";
+            this.MonthlyFeeDropDown.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.MonthlyFeeDropDown.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.MonthlyFeeDropDown.selectedIndex = -1;
+            this.MonthlyFeeDropDown.Size = new System.Drawing.Size(311, 35);
+            this.MonthlyFeeDropDown.TabIndex = 31;
+            this.MonthlyFeeDropDown.onItemSelected += new System.EventHandler(this.bunifuDropdown5_onItemSelected);
             // 
-            // AdmissionFeeDropdown
+            // AddmissionFeeDropDown
             // 
-            this.AdmissionFeeDropdown.BackColor = System.Drawing.Color.Transparent;
-            this.AdmissionFeeDropdown.BorderRadius = 3;
-            this.AdmissionFeeDropdown.ForeColor = System.Drawing.Color.White;
-            this.AdmissionFeeDropdown.Items = new string[] {
+            this.AddmissionFeeDropDown.BackColor = System.Drawing.Color.Transparent;
+            this.AddmissionFeeDropDown.BorderRadius = 3;
+            this.AddmissionFeeDropDown.ForeColor = System.Drawing.Color.White;
+            this.AddmissionFeeDropDown.Items = new string[] {
         "1000",
         "2000"};
-            this.AdmissionFeeDropdown.Location = new System.Drawing.Point(1015, 338);
-            this.AdmissionFeeDropdown.Name = "AdmissionFeeDropdown";
-            this.AdmissionFeeDropdown.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.AdmissionFeeDropdown.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.AdmissionFeeDropdown.selectedIndex = -1;
-            this.AdmissionFeeDropdown.Size = new System.Drawing.Size(311, 35);
-            this.AdmissionFeeDropdown.TabIndex = 32;
-            this.AdmissionFeeDropdown.onItemSelected += new System.EventHandler(this.bunifuDropdown6_onItemSelected);
+            this.AddmissionFeeDropDown.Location = new System.Drawing.Point(1015, 338);
+            this.AddmissionFeeDropDown.Name = "AddmissionFeeDropDown";
+            this.AddmissionFeeDropDown.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.AddmissionFeeDropDown.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.AddmissionFeeDropDown.selectedIndex = -1;
+            this.AddmissionFeeDropDown.Size = new System.Drawing.Size(311, 35);
+            this.AddmissionFeeDropDown.TabIndex = 32;
+            this.AddmissionFeeDropDown.onItemSelected += new System.EventHandler(this.bunifuDropdown6_onItemSelected);
             // 
-            // bunifuDropdown7
+            // StatusDropdown
             // 
-            this.bunifuDropdown7.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuDropdown7.BorderRadius = 3;
-            this.bunifuDropdown7.ForeColor = System.Drawing.Color.White;
-            this.bunifuDropdown7.Items = new string[] {
+            this.StatusDropdown.BackColor = System.Drawing.Color.Transparent;
+            this.StatusDropdown.BorderRadius = 3;
+            this.StatusDropdown.ForeColor = System.Drawing.Color.White;
+            this.StatusDropdown.Items = new string[] {
         "Active",
         "Cancel"};
-            this.bunifuDropdown7.Location = new System.Drawing.Point(1012, 633);
-            this.bunifuDropdown7.Name = "bunifuDropdown7";
-            this.bunifuDropdown7.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.bunifuDropdown7.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.bunifuDropdown7.selectedIndex = -1;
-            this.bunifuDropdown7.Size = new System.Drawing.Size(314, 35);
-            this.bunifuDropdown7.TabIndex = 33;
+            this.StatusDropdown.Location = new System.Drawing.Point(1015, 402);
+            this.StatusDropdown.Name = "StatusDropdown";
+            this.StatusDropdown.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.StatusDropdown.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.StatusDropdown.selectedIndex = -1;
+            this.StatusDropdown.Size = new System.Drawing.Size(314, 35);
+            this.StatusDropdown.TabIndex = 33;
             // 
             // bunifuDatepicker3
             // 
@@ -664,7 +657,7 @@
             this.bunifuDatepicker3.ForeColor = System.Drawing.Color.White;
             this.bunifuDatepicker3.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.bunifuDatepicker3.FormatCustom = null;
-            this.bunifuDatepicker3.Location = new System.Drawing.Point(428, 639);
+            this.bunifuDatepicker3.Location = new System.Drawing.Point(428, 632);
             this.bunifuDatepicker3.Name = "bunifuDatepicker3";
             this.bunifuDatepicker3.Size = new System.Drawing.Size(308, 36);
             this.bunifuDatepicker3.TabIndex = 34;
@@ -700,6 +693,17 @@
             this.label17.TabIndex = 0;
             this.label17.Text = "Byatikram academic care";
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Calibri", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Location = new System.Drawing.Point(824, 164);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(181, 28);
+            this.label18.TabIndex = 38;
+            this.label18.Text = "Reference Roll No.";
+            // 
             // ReferenceRollTextBox
             // 
             this.ReferenceRollTextBox.BackColor = System.Drawing.Color.White;
@@ -718,163 +722,39 @@
             this.ReferenceRollTextBox.TabIndex = 37;
             this.ReferenceRollTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
-            // label18
+            // button8
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Calibri", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(824, 164);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(181, 28);
-            this.label18.TabIndex = 38;
-            this.label18.Text = "Reference Roll No.";
+            this.button8.BackColor = System.Drawing.Color.Red;
+            this.button8.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.Location = new System.Drawing.Point(810, 704);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(275, 45);
+            this.button8.TabIndex = 39;
+            this.button8.Text = "Delete";
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
-            // DiscountTextbox
-            // 
-            this.DiscountTextbox.BackColor = System.Drawing.Color.White;
-            this.DiscountTextbox.BorderColorFocused = System.Drawing.Color.SeaGreen;
-            this.DiscountTextbox.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.DiscountTextbox.BorderColorMouseHover = System.Drawing.Color.SeaGreen;
-            this.DiscountTextbox.BorderThickness = 3;
-            this.DiscountTextbox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.DiscountTextbox.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.DiscountTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.DiscountTextbox.isPassword = false;
-            this.DiscountTextbox.Location = new System.Drawing.Point(1015, 387);
-            this.DiscountTextbox.Margin = new System.Windows.Forms.Padding(4);
-            this.DiscountTextbox.Name = "DiscountTextbox";
-            this.DiscountTextbox.Size = new System.Drawing.Size(311, 44);
-            this.DiscountTextbox.TabIndex = 39;
-            this.DiscountTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.DiscountTextbox.OnValueChanged += new System.EventHandler(this.DiscountTextbox_OnValueChanged);
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(828, 451);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(144, 29);
-            this.label19.TabIndex = 40;
-            this.label19.Text = "Total Payable";
-            // 
-            // TotalPaybleTextbox
-            // 
-            this.TotalPaybleTextbox.BackColor = System.Drawing.Color.White;
-            this.TotalPaybleTextbox.BorderColorFocused = System.Drawing.Color.SeaGreen;
-            this.TotalPaybleTextbox.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TotalPaybleTextbox.BorderColorMouseHover = System.Drawing.Color.SeaGreen;
-            this.TotalPaybleTextbox.BorderThickness = 3;
-            this.TotalPaybleTextbox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TotalPaybleTextbox.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.TotalPaybleTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TotalPaybleTextbox.isPassword = false;
-            this.TotalPaybleTextbox.Location = new System.Drawing.Point(1015, 451);
-            this.TotalPaybleTextbox.Margin = new System.Windows.Forms.Padding(4);
-            this.TotalPaybleTextbox.Name = "TotalPaybleTextbox";
-            this.TotalPaybleTextbox.Size = new System.Drawing.Size(311, 44);
-            this.TotalPaybleTextbox.TabIndex = 41;
-            this.TotalPaybleTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // PaidAmountTextbox
-            // 
-            this.PaidAmountTextbox.BackColor = System.Drawing.Color.White;
-            this.PaidAmountTextbox.BorderColorFocused = System.Drawing.Color.SeaGreen;
-            this.PaidAmountTextbox.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.PaidAmountTextbox.BorderColorMouseHover = System.Drawing.Color.SeaGreen;
-            this.PaidAmountTextbox.BorderThickness = 3;
-            this.PaidAmountTextbox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.PaidAmountTextbox.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.PaidAmountTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.PaidAmountTextbox.isPassword = false;
-            this.PaidAmountTextbox.Location = new System.Drawing.Point(1015, 503);
-            this.PaidAmountTextbox.Margin = new System.Windows.Forms.Padding(4);
-            this.PaidAmountTextbox.Name = "PaidAmountTextbox";
-            this.PaidAmountTextbox.Size = new System.Drawing.Size(311, 44);
-            this.PaidAmountTextbox.TabIndex = 42;
-            this.PaidAmountTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.PaidAmountTextbox.OnValueChanged += new System.EventHandler(this.PaidAmountTextbox_OnValueChanged);
-            // 
-            // DueTextbox
-            // 
-            this.DueTextbox.BackColor = System.Drawing.Color.White;
-            this.DueTextbox.BorderColorFocused = System.Drawing.Color.SeaGreen;
-            this.DueTextbox.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.DueTextbox.BorderColorMouseHover = System.Drawing.Color.SeaGreen;
-            this.DueTextbox.BorderThickness = 3;
-            this.DueTextbox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.DueTextbox.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.DueTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.DueTextbox.isPassword = false;
-            this.DueTextbox.Location = new System.Drawing.Point(1015, 567);
-            this.DueTextbox.Margin = new System.Windows.Forms.Padding(4);
-            this.DueTextbox.Name = "DueTextbox";
-            this.DueTextbox.Size = new System.Drawing.Size(311, 44);
-            this.DueTextbox.TabIndex = 43;
-            this.DueTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.White;
-            this.label20.Location = new System.Drawing.Point(828, 503);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(140, 29);
-            this.label20.TabIndex = 44;
-            this.label20.Text = "Paid Amount";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.White;
-            this.label21.Location = new System.Drawing.Point(824, 387);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(173, 29);
-            this.label21.TabIndex = 45;
-            this.label21.Text = "Discount (If any)";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.Color.White;
-            this.label22.Location = new System.Drawing.Point(827, 567);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(53, 29);
-            this.label22.TabIndex = 46;
-            this.label22.Text = "Due";
-            // 
-            // masterForm
+            // masterFormForEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(49)))), ((int)(((byte)(60)))));
             this.ClientSize = new System.Drawing.Size(1359, 783);
-            this.Controls.Add(this.label22);
-            this.Controls.Add(this.label21);
-            this.Controls.Add(this.label20);
-            this.Controls.Add(this.DueTextbox);
-            this.Controls.Add(this.PaidAmountTextbox);
-            this.Controls.Add(this.TotalPaybleTextbox);
-            this.Controls.Add(this.label19);
-            this.Controls.Add(this.DiscountTextbox);
+            this.Controls.Add(this.button8);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.ReferenceRollTextBox);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.bunifuDatepicker3);
-            this.Controls.Add(this.bunifuDropdown7);
-            this.Controls.Add(this.AdmissionFeeDropdown);
-            this.Controls.Add(this.monthlyFeeDropDown);
-            this.Controls.Add(this.bunifuDropdown4);
-            this.Controls.Add(this.bunifuDropdown3);
-            this.Controls.Add(this.bunifuDropdown2);
-            this.Controls.Add(this.bunifuDropdown1);
+            this.Controls.Add(this.StatusDropdown);
+            this.Controls.Add(this.AddmissionFeeDropDown);
+            this.Controls.Add(this.MonthlyFeeDropDown);
+            this.Controls.Add(this.CourseDropDown);
+            this.Controls.Add(this.classDropdown);
+            this.Controls.Add(this.VersionDropDown);
+            this.Controls.Add(this.schoolDropDown);
             this.Controls.Add(this.MobileTextBox);
-            this.Controls.Add(this.bunifuDatepicker2);
+            this.Controls.Add(this.DateOfBirthPicker);
             this.Controls.Add(this.AddressTexbox);
             this.Controls.Add(this.GuardiansNameTextbox);
             this.Controls.Add(this.button5);
@@ -899,8 +779,8 @@
             this.Controls.Add(this.bunifuDatepicker1);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.Transparent;
-            this.Name = "masterForm";
-            this.Text = "masterForm";
+            this.Name = "masterFormForEdit";
+            this.Text = "masterFormForEdit";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
@@ -941,15 +821,15 @@
         private System.Windows.Forms.Button button5;
         private Bunifu.Framework.UI.BunifuMetroTextbox GuardiansNameTextbox;
         private Bunifu.Framework.UI.BunifuMetroTextbox AddressTexbox;
-        private Bunifu.Framework.UI.BunifuDatepicker bunifuDatepicker2;
+        private Bunifu.Framework.UI.BunifuDatepicker DateOfBirthPicker;
         private Bunifu.Framework.UI.BunifuMetroTextbox MobileTextBox;
-        private Bunifu.Framework.UI.BunifuDropdown bunifuDropdown1;
-        private Bunifu.Framework.UI.BunifuDropdown bunifuDropdown2;
-        private Bunifu.Framework.UI.BunifuDropdown bunifuDropdown3;
-        private Bunifu.Framework.UI.BunifuDropdown bunifuDropdown4;
-        private Bunifu.Framework.UI.BunifuDropdown monthlyFeeDropDown;
-        private Bunifu.Framework.UI.BunifuDropdown AdmissionFeeDropdown;
-        private Bunifu.Framework.UI.BunifuDropdown bunifuDropdown7;
+        private Bunifu.Framework.UI.BunifuDropdown schoolDropDown;
+        private Bunifu.Framework.UI.BunifuDropdown VersionDropDown;
+        private Bunifu.Framework.UI.BunifuDropdown classDropdown;
+        private Bunifu.Framework.UI.BunifuDropdown CourseDropDown;
+        private Bunifu.Framework.UI.BunifuDropdown MonthlyFeeDropDown;
+        private Bunifu.Framework.UI.BunifuDropdown AddmissionFeeDropDown;
+        private Bunifu.Framework.UI.BunifuDropdown StatusDropdown;
         private Bunifu.Framework.UI.BunifuDatepicker bunifuDatepicker3;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Panel panel3;
@@ -957,16 +837,9 @@
         private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton1;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button button6;
-        private Bunifu.Framework.UI.BunifuMetroTextbox ReferenceRollTextBox;
-        private System.Windows.Forms.Label label18;
-        private Bunifu.Framework.UI.BunifuMetroTextbox DiscountTextbox;
-        private System.Windows.Forms.Label label19;
-        private Bunifu.Framework.UI.BunifuMetroTextbox TotalPaybleTextbox;
-        private Bunifu.Framework.UI.BunifuMetroTextbox PaidAmountTextbox;
-        private Bunifu.Framework.UI.BunifuMetroTextbox DueTextbox;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Label label18;
+        private Bunifu.Framework.UI.BunifuMetroTextbox ReferenceRollTextBox;
+        private System.Windows.Forms.Button button8;
     }
 }
