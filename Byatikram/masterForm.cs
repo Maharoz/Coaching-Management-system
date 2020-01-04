@@ -50,6 +50,12 @@ namespace Byatikram
 
         private void button5_Click(object sender, EventArgs e)
         {
+            int paidAmountDuringAddmissionForCheck;
+            int.TryParse(PaidAmountTextbox.Text, out paidAmountDuringAddmissionForCheck);
+
+            int addmissionFeeForCheck;
+            int.TryParse(AdmissionFeeDropdown.selectedValue, out addmissionFeeForCheck);
+
             int rollNumberForDuplicacy;
             int.TryParse(RollNumberTextBox.Text, out rollNumberForDuplicacy);
             SqlConnection sqlcon = new SqlConnection(@"Data Source=celsa.database.windows.net;Initial Catalog=pos-mugdho;User ID=celsa;Password=Qwerty1@3$5");
@@ -63,6 +69,10 @@ namespace Byatikram
             if (dtbl.Rows.Count == 1)
             {
                 MessageBox.Show("This RollNumber is duplicate");
+            }
+            else if (addmissionFeeForCheck>paidAmountDuringAddmissionForCheck)
+            {
+                MessageBox.Show("You have to pay full admission fee for Registration");
             }
             else
             {
@@ -187,11 +197,16 @@ namespace Byatikram
                     con.Close();
                 MessageBox.Show("Record Inserted Successfully");
                
-               //SendSMS(RollNumberTextBox.Text, paidAmountDuringAddmission.ToString(), trxID,MobileTextBox.Text);
+              SendSMS(RollNumberTextBox.Text, paidAmountDuringAddmission.ToString(), trxID,MobileTextBox.Text,studentNameTextBox.Text);
                 masterForm NewForm = new masterForm();
                 NewForm.Show();
                 this.Dispose(false);
-            }
+                string collectionType = "AdmissionFee";
+                string date = monthName + "," + bunifuDatepicker3.Value.Year.ToString();
+                 PrintableForm objFrmMain = new PrintableForm(rollNumber.ToString(), date, collectionType);
+                objFrmMain.Show();
+
+                }
             else
             {
                 MessageBox.Show("Please Provide Required Fields!");
@@ -272,7 +287,7 @@ namespace Byatikram
             mlr.Show();
         }
 
-        private void SendSMS(string rollNumber, string amount, string trxID,string mobileNumber)
+        private void SendSMS(string rollNumber, string amount, string trxID,string mobileNumber,string studentName)
         {
             string result = "";
             WebRequest request = null;
@@ -282,7 +297,12 @@ namespace Byatikram
                 //01711789090
                 String to = "01711789090," + mobileNumber; //Recipient Phone Number multiple number must be separated by comma
                 String token = "a201640750cff06a9171f13db8412ec1"; //generate token from the control panel
-                String message = System.Uri.EscapeUriString("'Byatikram Academic Care'" + " Money Received " + amount + "Tk.from roll number " + rollNumber + " .Transaction id " + trxID); //do not use single quotation (') in the message to avoid forbidden result
+                String message = System.Uri.EscapeUriString("'Byatikram Academic Care'" + 
+                                                            " Money Received " + amount +
+                                                            "Tk.from " + studentName
+                                                            +" roll number " + rollNumber 
+                                                            + " .Transaction id " + trxID
+                                                            +" For Query:Call 01971789090"); //do not use single quotation (') in the message to avoid forbidden result
                 String url = "http://api.greenweb.com.bd/api.php?token=" + token + "&to=" + to + "&message=" + message;
                 request = WebRequest.Create(url);
 

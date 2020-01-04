@@ -212,7 +212,7 @@
             this.bunifuDatepicker1.Name = "bunifuDatepicker1";
             this.bunifuDatepicker1.Size = new System.Drawing.Size(308, 36);
             this.bunifuDatepicker1.TabIndex = 1;
-            this.bunifuDatepicker1.Value = new System.DateTime(2019, 11, 27, 19, 38, 12, 738);
+            this.bunifuDatepicker1.Value = new System.DateTime(2019, 12, 31, 0, 0, 0, 0);
             // 
             // label1
             // 
@@ -485,7 +485,7 @@
             this.bunifuDatepicker2.Name = "bunifuDatepicker2";
             this.bunifuDatepicker2.Size = new System.Drawing.Size(308, 36);
             this.bunifuDatepicker2.TabIndex = 24;
-            this.bunifuDatepicker2.Value = new System.DateTime(2019, 11, 27, 19, 38, 12, 738);
+            this.bunifuDatepicker2.Value = new System.DateTime(2019, 12, 31, 0, 0, 0, 0);
             // 
             // MobileTextBox
             // 
@@ -668,7 +668,7 @@
             this.bunifuDatepicker3.Name = "bunifuDatepicker3";
             this.bunifuDatepicker3.Size = new System.Drawing.Size(308, 36);
             this.bunifuDatepicker3.TabIndex = 34;
-            this.bunifuDatepicker3.Value = new System.DateTime(2019, 11, 27, 19, 38, 12, 738);
+            this.bunifuDatepicker3.Value = new System.DateTime(2019, 12, 31, 0, 0, 0, 0);
             // 
             // label16
             // 

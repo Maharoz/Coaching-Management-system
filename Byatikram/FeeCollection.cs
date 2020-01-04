@@ -95,7 +95,7 @@ namespace Byatikram
                 cmd.ExecuteNonQuery();
                 dmd.ExecuteNonQuery();
                 con.Close();
-                SendSMS(StudentRollTextBox.Text, AmountTextBox.Text, trxID);
+               SendSMS(StudentRollTextBox.Text, AmountTextBox.Text, trxID,StudentNameTextBox.Text);
                 MessageBox.Show("Record Inserted Successfully");
 
 
@@ -104,8 +104,8 @@ namespace Byatikram
                 NewForm.Show();
                 this.Dispose(false);
 
-
-                PrintableForm objFrmMain = new PrintableForm(rollNo, name);
+                string collectionType = "MonthlyFee";
+                PrintableForm objFrmMain = new PrintableForm(rollNo, name, collectionType);
                 objFrmMain.Show();
 
             }
@@ -121,7 +121,7 @@ namespace Byatikram
             objFrmMain.Show();
         }
 
-        private void SendSMS(string rollNumber,string amount , string trxID)
+        private void SendSMS(string rollNumber,string amount , string trxID,string studentName)
         {
             string result = "";
             WebRequest request = null;
@@ -131,7 +131,12 @@ namespace Byatikram
                 //01711789090
                 String to = "01711789090," + studentMobileNumber; //Recipient Phone Number multiple number must be separated by comma
                 String token = "a201640750cff06a9171f13db8412ec1"; //generate token from the control panel
-                String message = System.Uri.EscapeUriString("'Byatikram Academic Care'"+" Money Received " + amount + "Tk .from roll number " + rollNumber+ " .Transaction id " + trxID); //do not use single quotation (') in the message to avoid forbidden result
+                String message = System.Uri.EscapeUriString("'Byatikram Academic Care'" +
+                                                            " Money Received " + amount +
+                                                            "Tk.from " + studentName
+                                                            + " roll number " + rollNumber
+                                                            + " .Transaction id " + trxID
+                                                            + " For Query:Call 01971789090"); //do not use single quotation (') in the message to avoid forbidden result
                 String url = "http://api.greenweb.com.bd/api.php?token=" + token + "&to=" + to + "&message=" + message;
                 request = WebRequest.Create(url);
 

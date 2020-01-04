@@ -11,7 +11,7 @@ namespace Byatikram
 {
     using System;
     
-    public partial class GetPaymentReport_Result
+    public partial class GetPaymentReportWithType_Result
     {
         public int CollectionID { get; set; }
         public Nullable<int> StudentRollNumber { get; set; }

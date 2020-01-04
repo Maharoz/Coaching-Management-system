@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="MoneyCollection">
           <Key>
             <PropertyRef Name="CollectionID" />
@@ -15,6 +15,10 @@
           <Property Name="CollectorID" Type="varchar" MaxLength="50" />
           <Property Name="CollectionMonth" Type="varchar" MaxLength="50" />
           <Property Name="StudentName" Type="varchar" MaxLength="50" />
+          <Property Name="OtherDiscount" Type="varchar" MaxLength="50" />
+          <Property Name="CollectionDate" Type="date" />
+          <Property Name="CollectionType" Type="varchar" MaxLength="50" />
+          <Property Name="TrxID" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Registration">
           <Key>
@@ -37,6 +41,10 @@
           <Property Name="Status" Type="varchar" MaxLength="50" />
           <Property Name="CreationDate" Type="date" />
           <Property Name="CreatedBy" Type="int" />
+          <Property Name="RefrenceRollNumber" Type="int" />
+          <Property Name="Discount" Type="int" />
+          <Property Name="TotalPayableDuringAdmission" Type="int" />
+          <Property Name="PaidAmountDuringAdmission" Type="int" />
         </EntityType>
         <EntityType Name="StudentDue">
           <Key>
@@ -99,6 +107,11 @@ warning 6002: The table/view 'pos-mugdho.sys.database_firewall_rules' does not h
           <Parameter Name="RollNumber" Type="int" Mode="In" />
           <Parameter Name="PaymentMonth" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="GetPaymentReportWithType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RollNumber" Type="int" Mode="In" />
+          <Parameter Name="PaymentMonth" Type="varchar" Mode="In" />
+          <Parameter Name="PaymentType" Type="varchar" Mode="In" />
+        </Function>
         <EntityContainer Name="ModelStoreContainer">
           <EntitySet Name="MoneyCollection" EntityType="Self.MoneyCollection" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Registration" EntityType="Self.Registration" Schema="dbo" store:Type="Tables" />
@@ -116,8 +129,7 @@ warning 6002: The table/view 'pos-mugdho.sys.database_firewall_rules' does not h
     FROM [sys].[database_firewall_rules] AS [database_firewall_rules]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -131,6 +143,10 @@ warning 6002: The table/view 'pos-mugdho.sys.database_firewall_rules' does not h
           <Property Name="CollectorID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CollectionMonth" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="StudentName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OtherDiscount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CollectionDate" Type="DateTime" Precision="0" />
+          <Property Name="CollectionType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TrxID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Registration">
           <Key>
@@ -153,6 +169,10 @@ warning 6002: The table/view 'pos-mugdho.sys.database_firewall_rules' does not h
           <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CreationDate" Type="DateTime" Precision="0" />
           <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="RefrenceRollNumber" Type="Int32" />
+          <Property Name="Discount" Type="Int32" />
+          <Property Name="TotalPayableDuringAdmission" Type="Int32" />
+          <Property Name="PaidAmountDuringAdmission" Type="Int32" />
         </EntityType>
         <EntityType Name="StudentDue">
           <Key>
@@ -220,6 +240,11 @@ warning 6002: The table/view 'pos-mugdho.sys.database_firewall_rules' does not h
             <Parameter Name="RollNumber" Mode="In" Type="Int32" />
             <Parameter Name="PaymentMonth" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="GetPaymentReportWithType" ReturnType="Collection(Model.GetPaymentReportWithType_Result)">
+            <Parameter Name="RollNumber" Mode="In" Type="Int32" />
+            <Parameter Name="PaymentMonth" Mode="In" Type="String" />
+            <Parameter Name="PaymentType" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="GetPaymentReport_Result">
           <Property Type="Int32" Name="CollectionID" Nullable="false" />
@@ -228,6 +253,19 @@ warning 6002: The table/view 'pos-mugdho.sys.database_firewall_rules' does not h
           <Property Type="String" Name="CollectorID" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="CollectionMonth" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="StudentName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="TotalDue" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetPaymentReportWithType_Result">
+          <Property Type="Int32" Name="CollectionID" Nullable="false" />
+          <Property Type="Int32" Name="StudentRollNumber" Nullable="true" />
+          <Property Type="String" Name="CollectedAmount" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CollectorID" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CollectionMonth" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="StudentName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="OtherDiscount" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="CollectionDate" Nullable="true" />
+          <Property Type="String" Name="CollectionType" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="TrxID" Nullable="true" MaxLength="100" />
           <Property Type="Int32" Name="TotalDue" Nullable="true" />
         </ComplexType>
       </Schema>
@@ -239,6 +277,10 @@ warning 6002: The table/view 'pos-mugdho.sys.database_firewall_rules' does not h
           <EntitySetMapping Name="MoneyCollections">
             <EntityTypeMapping TypeName="Model.MoneyCollection">
               <MappingFragment StoreEntitySet="MoneyCollection">
+                <ScalarProperty Name="TrxID" ColumnName="TrxID" />
+                <ScalarProperty Name="CollectionType" ColumnName="CollectionType" />
+                <ScalarProperty Name="CollectionDate" ColumnName="CollectionDate" />
+                <ScalarProperty Name="OtherDiscount" ColumnName="OtherDiscount" />
                 <ScalarProperty Name="CollectionID" ColumnName="CollectionID" />
                 <ScalarProperty Name="StudentRollNumber" ColumnName="StudentRollNumber" />
                 <ScalarProperty Name="CollectedAmount" ColumnName="CollectedAmount" />
@@ -251,6 +293,10 @@ warning 6002: The table/view 'pos-mugdho.sys.database_firewall_rules' does not h
           <EntitySetMapping Name="Registrations">
             <EntityTypeMapping TypeName="Model.Registration">
               <MappingFragment StoreEntitySet="Registration">
+                <ScalarProperty Name="PaidAmountDuringAdmission" ColumnName="PaidAmountDuringAdmission" />
+                <ScalarProperty Name="TotalPayableDuringAdmission" ColumnName="TotalPayableDuringAdmission" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="RefrenceRollNumber" ColumnName="RefrenceRollNumber" />
                 <ScalarProperty Name="StudentID" ColumnName="StudentID" />
                 <ScalarProperty Name="StudentName" ColumnName="StudentName" />
                 <ScalarProperty Name="StudentRollNumber" ColumnName="StudentRollNumber" />
@@ -334,6 +380,23 @@ warning 6002: The table/view 'pos-mugdho.sys.database_firewall_rules' does not h
                 <ScalarProperty Name="CollectorID" ColumnName="CollectorID" />
                 <ScalarProperty Name="CollectionMonth" ColumnName="CollectionMonth" />
                 <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+                <ScalarProperty Name="TotalDue" ColumnName="TotalDue" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetPaymentReportWithType" FunctionName="Model.Store.GetPaymentReportWithType">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.GetPaymentReportWithType_Result">
+                <ScalarProperty Name="CollectionID" ColumnName="CollectionID" />
+                <ScalarProperty Name="StudentRollNumber" ColumnName="StudentRollNumber" />
+                <ScalarProperty Name="CollectedAmount" ColumnName="CollectedAmount" />
+                <ScalarProperty Name="CollectorID" ColumnName="CollectorID" />
+                <ScalarProperty Name="CollectionMonth" ColumnName="CollectionMonth" />
+                <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+                <ScalarProperty Name="OtherDiscount" ColumnName="OtherDiscount" />
+                <ScalarProperty Name="CollectionDate" ColumnName="CollectionDate" />
+                <ScalarProperty Name="CollectionType" ColumnName="CollectionType" />
+                <ScalarProperty Name="TrxID" ColumnName="TrxID" />
                 <ScalarProperty Name="TotalDue" ColumnName="TotalDue" />
               </ComplexTypeMapping>
             </ResultMapping>

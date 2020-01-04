@@ -15,10 +15,10 @@ namespace Byatikram
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class Entities : DbContext
+    public partial class Entities1 : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public Entities1()
+            : base("name=Entities1")
         {
         }
     
@@ -27,12 +27,6 @@ namespace Byatikram
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<MoneyCollection> MoneyCollections { get; set; }
-        public virtual DbSet<Registration> Registrations { get; set; }
-        public virtual DbSet<StudentDue> StudentDues { get; set; }
-        public virtual DbSet<StudentRegistration> StudentRegistrations { get; set; }
-        public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
     
         public virtual ObjectResult<GetPaymentReport_Result> GetPaymentReport(Nullable<int> rollNumber, string paymentMonth)
         {

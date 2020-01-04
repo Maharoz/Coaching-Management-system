@@ -20,5 +20,9 @@ namespace Byatikram
         public string CollectorID { get; set; }
         public string CollectionMonth { get; set; }
         public string StudentName { get; set; }
+        public string OtherDiscount { get; set; }
+        public Nullable<System.DateTime> CollectionDate { get; set; }
+        public string CollectionType { get; set; }
+        public string TrxID { get; set; }
     }
 }

@@ -31,5 +31,9 @@ namespace Byatikram
         public string Status { get; set; }
         public Nullable<System.DateTime> CreationDate { get; set; }
         public Nullable<int> CreatedBy { get; set; }
+        public Nullable<int> RefrenceRollNumber { get; set; }
+        public Nullable<int> Discount { get; set; }
+        public Nullable<int> TotalPayableDuringAdmission { get; set; }
+        public Nullable<int> PaidAmountDuringAdmission { get; set; }
     }
 }
